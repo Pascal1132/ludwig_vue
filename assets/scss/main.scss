@@ -1,0 +1,59 @@
+// BASE STYLESHEET ==========================================================
+@import "variables";
+
+.padd {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 50px 0;
+}
+html,
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  color: $primary_color;
+  text-decoration: none;
+  &:hover {
+    color: $secondary_color;
+  }
+}
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+  // each even section slide left
+  section:nth-child(even) {
+    transition: 0.4s;
+    transform: translateX(0%);
+  }
+  // each odd section slide right
+  section:nth-child(odd) {
+    transition: 0.4s;
+    transform: translateX(0%);
+  }
+}
+
+html.is-animating .transition-fade {
+  transition: 0.4s;
+  opacity: 0.5;
+  section:nth-child(even) {
+    transform: translateX(-100%);
+  }
+  // each odd section slide right
+  section:nth-child(odd) {
+    transform: translateX(100%);
+  }
+}
+@keyframes jiggle {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

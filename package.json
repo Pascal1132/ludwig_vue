@@ -1,0 +1,34 @@
+{
+  "name": "Ludwig",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "test": "yarn test:unit && yarn test:e2e",
+    "test:unit": "cross-env TEST=unit ava ./test/specs/**/*",
+    "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "6.1.1",
+    "@fortawesome/free-solid-svg-icons": "6.1.1",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/fontawesome": "1.1.2",
+    "@nuxtjs/style-resources": "^1.2.1",
+    "axios": "0.27.1",
+    "core-js": "3.22.2",
+    "express": "4.18.0",
+    "nuxt": "2.15.8",
+    "swup": "2.0.14",
+    "vue": "2.6.14",
+    "vue-server-renderer": "2.6.14",
+    "vue-template-compiler": "2.6.14",
+    "webpack": "^4.46.0"
+  },
+  "devDependencies": {
+    "sass": "latest",
+    "sass-loader": "^10.1.1"
+  }
+}

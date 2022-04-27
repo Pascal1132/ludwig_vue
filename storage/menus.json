@@ -1,0 +1,284 @@
+{
+    "main_menu": {
+        "urls": [
+            {
+                "type": {
+                    "fr": "submenu",
+                    "en": "submenu"
+                },
+                "title": {
+                    "fr": "Thorens",
+                    "en": "Thorens"
+                },
+                "urls": [
+                    {
+                        "type": {
+                            "fr": "internal",
+                            "en": "internal"
+                        },
+                        "title": {
+                            "fr": "FAQ",
+                            "en": "FAQ"
+                        },
+                        "url": {
+                            "fr": "/fr/faq",
+                            "en": "/en/faq"
+                        },
+                        "attributes": {
+                            "fr": {
+                                "target": "_self"
+                            },
+                            "en": {
+                                "target": "_self"
+                            }
+                        }
+                    },
+                    {
+                        "type": {
+                            "fr": "internal",
+                            "en": "internal"
+                        },
+                        "title": {
+                            "fr": "Études de cas",
+                            "en": "Case Study"
+                        },
+                        "url": {
+                            "fr": "/fr/etudes-de-cas",
+                            "en":   "/en/case-study"
+                        },
+                        "attributes": {
+                            "fr": {
+                                "target": "_self"
+                            },
+                            "en": {
+                                "target": "_self"
+                            }
+                        }
+                    },
+                    {
+                        "type": {
+                            "fr": "internal",
+                            "en": "internal"
+                        },
+                        "title": {
+                            "fr": "À propos",
+                            "en": "About Us"
+                        },
+                        "url": {
+                            "fr":   "/fr/a-propos",
+                            "en":  "/en/about-us"
+                        },
+                        "attributes": {
+                            "fr": {
+                                "target": "_self"
+                            },
+                            "en": {
+                                "target": "_self"
+                            }
+                        }
+                    },
+                    {
+                        "type": {
+                            "fr": "internal",
+                            "en": "internal"
+                        },
+                        "title": {
+                            "fr": "Blogue",
+                            "en": "Blog"
+                        },
+                        "url": {
+                            "fr": "/fr/blogue",
+                            "en": "/en/blog"
+                        },
+                        "attributes": {
+                            "fr": {
+                                "target": "_self"
+                            },
+                            "en": {
+                                "target": "_self"
+                            }
+                        }
+                    },
+                    {
+                        "type": {
+                            "fr": "internal",
+                            "en": "internal"
+                        },
+                        "title": {
+                            "fr": "Nos spécialités",
+                            "en": "Activities area"
+                        },
+                        "url": {
+                            "fr": "/fr/nos-specialites",
+                            "en": "/en/activities-area"
+                        },
+                        "attributes": {
+                            "fr": {
+                                "target": "_self"
+                            },
+                            "en": {
+                                "target": "_self"
+                            }
+                        }
+                    },
+                    {
+                        "type": {
+                            "fr": "internal",
+                            "en": "internal"
+                        },
+                        "title": {
+                            "fr": "Nous joindre",
+                            "en": "Contact us"
+                        },
+                        "url": {
+                            "fr": "/fr/nous-joindre",
+                            "en": "/en/about-us"
+                        },
+                        "attributes": {
+                            "fr": {
+                                "target": "_self"
+                            },
+                            "en": {
+                                "target": "_self"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": {
+                    "fr": "submenu",
+                    "en": "submenu"
+                },
+                "title": {
+                    "fr": "Candidats",
+                    "en": "Candidates"
+                },
+                "urls": [
+                    {
+                        "type": {
+                            "fr": "internal",
+                            "en": "internal"
+                        },
+                        "title": {
+                            "fr": "Offres d'emploi",
+                            "en": "Job offers"
+                        },
+                        "url": {
+                            "fr": "/fr/offres-d-emploi",
+                            "en": "/en/job-offers"
+                        },
+                        "attributes": {
+                            "fr": {
+                                "target": ""
+                            },
+                            "en": {
+                                "target": ""
+                            }
+                        }
+                    },
+                    {
+                        "type": {
+                            "fr": "internal",
+                            "en": "internal"
+                        },
+                        "title": {
+                            "fr": "Joindre notre réseau de candidats",
+                            "en": "Join our Candidate Network "
+                        },
+                        "url": {
+                            "fr": "/fr/joindre-notre-reseau-de-candidats",
+                            "en": "/en/join-our-candidate-network"
+                        },
+                        "attributes": {
+                            "fr": {
+                                "target": "_self"
+                            },
+                            "en": {
+                                "target": "_self"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": {
+                    "fr": "submenu",
+                    "en": "submenu"
+                },
+                "title": {
+                    "fr": "Employeur",
+                    "en": "Employer"
+                },
+                "urls": [
+                    {
+                        "type": {
+                            "fr": "internal",
+                            "en": "internal"
+                        },
+                        "title": {
+                            "fr": "Outils",
+                            "en": "Tools"
+                        },
+                        "url": {
+                            "fr": "/fr/outils",
+                            "en": "/en/tools"
+                        },
+                        "attributes": {
+                            "fr": {
+                                "target": "_self"
+                            },
+                            "en": {
+                                "target": "_self"
+                            }
+                        }
+                    },
+                    {
+                        "type": {
+                            "fr": "internal",
+                            "en": "internal"
+                        },
+                        "title": {
+                            "fr": "Service de recrutement",
+                            "en": "Recruiting service"
+                        },
+                        "url": {
+                            "fr": "c7776038-a01d-11eb-b86c-83f08125421e",
+                            "en": "c7776038-a01d-11eb-b86c-83f08125421e"
+                        },
+                        "attributes": {
+                            "fr": {
+                                "target": "_self"
+                            },
+                            "en": {
+                                "target": "_self"
+                            }
+                        }
+                    },
+                    {
+                        "type": {
+                            "fr": "internal",
+                            "en": "internal"
+                        },
+                        "title": {
+                            "fr": "Offre d'emploi gratuite",
+                            "en": "Free job offers publication "
+                        },
+                        "url": {
+                            "fr": "34ffba88-9ea2-11eb-bc97-8d1b10a6ce59",
+                            "en": "34ffba88-9ea2-11eb-bc97-8d1b10a6ce59"
+                        },
+                        "attributes": {
+                            "fr": {
+                                "target": "_self"
+                            },
+                            "en": {
+                                "target": "_self"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
