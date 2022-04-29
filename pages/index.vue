@@ -1,14 +1,16 @@
 <template>
-  <div class="content transition-fade swup" :style="cssVars">
-    <!-- page -->
+<transition name="page">
+  <div class="content" :style="cssVars">
     <template v-for="(section, i) in sections">
-      <component :key="i" :is="section.component" :section="section" />
+      <component :key="i" :is="section.component" v-bind="fieldsToProps(section.fields)" :section="section" :data-section="section.component" />
     </template>
   </div>
+  </transition>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import Field from '~/modules/rubberduck/Aggregate/Field'
 
 export default Vue.extend({
   data() {
@@ -18,6 +20,7 @@ export default Vue.extend({
       language: '',
     }
   },
+  comments: true,
   loading: false,
   fetch: async function () {
     let pageable = await this.$store.getters.pageable
@@ -56,6 +59,15 @@ export default Vue.extend({
     this.$nextTick(() => {
       this.$nuxt.$loading.finish()
     })
+  },
+  methods: {
+    fieldsToProps(fields: Field[]) {
+        let props = <any>{};
+        fields.forEach((field: Field) => {
+            props[field.name] = field.value;
+        });
+        return props;
+    }
   },
 })
 </script>

@@ -1,11 +1,12 @@
 <template>
-    <section class="RGO06">
-        rwasr
+    <section class="RGO07">
+        RGO07
     </section>
 </template>
 <script>
 export default {
-    name: 'RGO06',
+    name: 'RGO07',
+    
 }
 </script>
 

@@ -15,12 +15,12 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5.0, user-scalable=yes' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
     script: [
       {
@@ -55,7 +55,7 @@ export default {
   components: {
     dirs: [
       '~/components',
-      '~/components/sections',
+      {path: '~/components/section', prefix: 'section'},
       '~/components/utilities',
     ]
   },

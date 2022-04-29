@@ -1,1 +1,1 @@
-[{"name":"Foire aux questions","path":"/fr/faq","component":"pages/index.vue"},{"name":"Blogue","path":"/fr/blogue","component":"pages/index.vue"},{"name":"route3","path":"/route-3","component":"pages/index.vue"}]
+[{"name":"Calendrier et évênements","path":"/fr/calendrier-evenements","component":"pages/index.vue"},{"name":"Blogue","path":"/fr/blogue","component":"pages/index.vue"},{"name":"route3","path":"/route-3","component":"pages/index.vue"}]

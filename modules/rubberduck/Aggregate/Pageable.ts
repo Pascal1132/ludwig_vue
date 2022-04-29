@@ -4,19 +4,17 @@ import Section from "./Section";
 export default class Pageable implements IDuckClass {
     id: string;
     title: string;
-    sections: Section[];
-    module_type: string;
-    parent_id: string;
     layout: string;
+    previewText: string;
+    sections: Section[];
     data: any;
 
-    constructor(id = ``, title = ``, sections = [], module_type = '', parent_id = '', layout = '', data = {}) {
+    constructor(id = ``, title = ``, layout = '', previewText = '', sections = [], data = {}) {
         this.id = id;
         this.title = title;
-        this.sections = sections;
-        this.module_type = module_type;
-        this.parent_id = parent_id;
         this.layout = layout;
+        this.previewText = previewText;
+        this.sections = sections;
         this.data = data;
     }
 
@@ -25,8 +23,6 @@ export default class Pageable implements IDuckClass {
             id: this.id,
             title: this.title,
             sections: this.sections,
-            module_type: this.module_type,
-            parent_id: this.parent_id,
             layout: this.layout,
             data: this.data
         }
@@ -36,7 +32,7 @@ export default class Pageable implements IDuckClass {
             let section_obj = Section.fromJSON(section);
             return section_obj;
         });
-        let pageable = new Pageable(json.id, json.title, sections, json.module_type, json.parent_id, json.layout, json.data);
+        let pageable = new Pageable(json.id, json.title, json.layout, json.previewText, sections, json.data);
         return pageable;
     }
 }

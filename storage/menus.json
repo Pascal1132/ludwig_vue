@@ -280,5 +280,93 @@
                 ]
             }
         ]
+    },
+    "top_menu": {
+        "urls": [
+            {
+                "type": {
+                    "fr": "internal",
+                    "en": "internal"
+                },
+                "title": {
+                    "fr": "Blogue & Nouvelles",
+                    "en": "News & Blog"
+                },
+                "url": {
+                    "fr": "/fr/blogue",
+                    "en": "/en/blog"
+                }
+            },
+            {
+                "type": {
+                    "fr": "internal",
+                    "en": "internal"
+                },
+                "title": {
+                    "fr": "Calendrier & Événements",
+                    "en": "Calendar & Events"
+                },
+                "url": {
+                    "fr": "/fr/calendrier-evenements",
+                    "en": "/en/calendar-events"
+                }
+            },
+            {
+                "type": {
+                    "fr": "internal",
+                    "en": "internal"
+                },
+                "title": {
+                    "fr": "Portfolio & Réalisations",
+                    "en": "Portfolio & case studies"
+                },
+                "url": {
+                    "fr": "/fr/portfolio-et-realisations",
+                    "en": "/en/portfolio-and-case-studies"
+                }
+            },
+            {
+                "type": {
+                    "fr": "internal",
+                    "en": "internal"
+                },
+                "title": {
+                    "fr": "Employés & Équipes",
+                    "en": "Members & Teams"
+                },
+                "url": {
+                    "fr": "/fr/employes-et-equipes",
+                    "en": "/en/employees-and-teams"
+                }
+            },
+            {
+                "type": {
+                    "fr": "",
+                    "en": ""
+                },
+                "title": {
+                    "fr": "",
+                    "en": ""
+                },
+                "url": {
+                    "fr": "",
+                    "en": ""
+                }
+            },
+            {
+                "type": {
+                    "fr": "",
+                    "en": ""
+                },
+                "title": {
+                    "fr": "",
+                    "en": ""
+                },
+                "url": {
+                    "fr": "",
+                    "en": ""
+                }
+            }
+        ]
     }
 }

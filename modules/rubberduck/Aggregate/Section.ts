@@ -1,16 +1,14 @@
 import Field from "./Field";
 
 export default class Section {
-    id: string;
-    title: string;
-    fields: Field[];
+    code: string;
     component: string;
+    fields: Field[];
 
-    constructor(id = ``, title = ``, fields = [], component = 'default') {
-        this.id = id;
-        this.title = title;
-        this.fields = fields;
+    constructor(code: string, component: string, fields: Field[]) {
+        this.code = code;
         this.component = component;
+        this.fields = fields;
     }
 
     // Get field by its name
@@ -20,10 +18,9 @@ export default class Section {
 
     toJSON() {
         return {
-            id: this.id,
-            title: this.title,
-            fields: this.fields,
+            code: this.code,
             component: this.component,
+            fields: this.fields,
         }
     }
     static fromJSON(json: any) {
@@ -31,7 +28,9 @@ export default class Section {
             let field_obj = Field.fromJSON(field);
             return field_obj;
         });
-        let section = new Section(json.id, json.title, fields, json.component);
-        return section;
+        // component from view path
+        let component = json.view.replace("/", "-");
+
+        return new Section((json.code).toUpperCase(), component, fields);
     }
 }

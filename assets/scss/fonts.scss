@@ -1,0 +1,151 @@
+// title-font
+// CAMPTON
+@font-face { font-family: "Campton"; font-style: normal; font-weight: 500; font-display: swap; src: url("/assets/fonts/Campton/campton-500-normal.ttf") format("truetype"); }
+// EUROSTILELTSTD
+@font-face { font-family: "EurostileLTStd"; font-style: normal; font-weight: 700; font-display: swap; src: url("/assets/fonts/Eurostile/eurostileltstd-700-normal.otf") format("opentype"); }
+
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400&family=Roboto:wght@700");
+
+:root {
+  --title-font_fontFamily: "EurostileLTStd";
+  --title-font_fontWeight: 700;
+  --title-font_fontSize: calc(35px - 19.2px + 1vw);
+  --title-font_fontStyle: normal;
+  --title-font_lineHeight: 1.2;
+  --title-font_letterSpacing: 1px;
+  --title-font_textTransform: uppercase;
+}
+@mixin title-font {
+  font-family: var(--title-font_fontFamily);
+  font-weight: var(--title-font_fontWeight);
+  font-size: var(--title-font_fontSize);
+  font-style: var(--title-font_fontStyle);
+  line-height: var(--title-font_lineHeight);
+  letter-spacing: var(--title-font_letterSpacing);
+  text-transform: var(--title-font_textTransform);
+}
+.title-font {
+  font-family: var(--title-font_fontFamily);
+  font-weight: var(--title-font_fontWeight);
+  font-size: var(--title-font_fontSize);
+  font-style: var(--title-font_fontStyle);
+  line-height: var(--title-font_lineHeight);
+  letter-spacing: var(--title-font_letterSpacing);
+  text-transform: var(--title-font_textTransform);
+}
+
+// paragraph-font
+:root {
+  --paragraph-font_fontFamily: "Red Hat Display";
+  --paragraph-font_fontWeight: 400;
+  --paragraph-font_fontSize: 1.6rem;
+  --paragraph-font_fontStyle: normal;
+  --paragraph-font_lineHeight: 1.9;
+  --paragraph-font_letterSpacing: 1px;
+  --paragraph-font_textTransform: none;
+}
+@mixin paragraph-font {
+  font-family: var(--paragraph-font_fontFamily);
+  font-weight: var(--paragraph-font_fontWeight);
+  font-size: var(--paragraph-font_fontSize);
+  font-style: var(--paragraph-font_fontStyle);
+  line-height: var(--paragraph-font_lineHeight);
+  letter-spacing: var(--paragraph-font_letterSpacing);
+  text-transform: var(--paragraph-font_textTransform);
+}
+.paragraph-font {
+  font-family: var(--paragraph-font_fontFamily);
+  font-weight: var(--paragraph-font_fontWeight);
+  font-size: var(--paragraph-font_fontSize);
+  font-style: var(--paragraph-font_fontStyle);
+  line-height: var(--paragraph-font_lineHeight);
+  letter-spacing: var(--paragraph-font_letterSpacing);
+  text-transform: var(--paragraph-font_textTransform);
+}
+
+// subtitle-font
+:root {
+  --subtitle-font_fontFamily: "Campton";
+  --subtitle-font_fontWeight: 500;
+  --subtitle-font_fontSize: 1.3rem;
+  --subtitle-font_fontStyle: normal;
+  --subtitle-font_lineHeight: 1.2;
+  --subtitle-font_letterSpacing: 1px;
+  --subtitle-font_textTransform: none;
+}
+@mixin subtitle-font {
+  font-family: var(--subtitle-font_fontFamily);
+  font-weight: var(--subtitle-font_fontWeight);
+  font-size: var(--subtitle-font_fontSize);
+  font-style: var(--subtitle-font_fontStyle);
+  line-height: var(--subtitle-font_lineHeight);
+  letter-spacing: var(--subtitle-font_letterSpacing);
+  text-transform: var(--subtitle-font_textTransform);
+}
+.subtitle-font {
+  font-family: var(--subtitle-font_fontFamily);
+  font-weight: var(--subtitle-font_fontWeight);
+  font-size: var(--subtitle-font_fontSize);
+  font-style: var(--subtitle-font_fontStyle);
+  line-height: var(--subtitle-font_lineHeight);
+  letter-spacing: var(--subtitle-font_letterSpacing);
+  text-transform: var(--subtitle-font_textTransform);
+}
+
+// small-font
+:root {
+  --small-font_fontFamily: "Roboto";
+  --small-font_fontWeight: 700;
+  --small-font_fontSize: 1.5rem;
+  --small-font_fontStyle: normal;
+  --small-font_lineHeight: 1.6;
+  --small-font_letterSpacing: 1px;
+  --small-font_textTransform: none;
+}
+@mixin small-font {
+  font-family: var(--small-font_fontFamily);
+  font-weight: var(--small-font_fontWeight);
+  font-size: var(--small-font_fontSize);
+  font-style: var(--small-font_fontStyle);
+  line-height: var(--small-font_lineHeight);
+  letter-spacing: var(--small-font_letterSpacing);
+  text-transform: var(--small-font_textTransform);
+}
+.small-font {
+  font-family: var(--small-font_fontFamily);
+  font-weight: var(--small-font_fontWeight);
+  font-size: var(--small-font_fontSize);
+  font-style: var(--small-font_fontStyle);
+  line-height: var(--small-font_lineHeight);
+  letter-spacing: var(--small-font_letterSpacing);
+  text-transform: var(--small-font_textTransform);
+}
+
+// input-font
+:root {
+  --input-font_fontFamily: "Red Hat Display";
+  --input-font_fontWeight: 400;
+  --input-font_fontSize: 1.6rem;
+  --input-font_fontStyle: normal;
+  --input-font_lineHeight: 1.9;
+  --input-font_letterSpacing: 1px;
+  --input-font_textTransform: none;
+}
+@mixin input-font {
+  font-family: var(--input-font_fontFamily);
+  font-weight: var(--input-font_fontWeight);
+  font-size: var(--input-font_fontSize);
+  font-style: var(--input-font_fontStyle);
+  line-height: var(--input-font_lineHeight);
+  letter-spacing: var(--input-font_letterSpacing);
+  text-transform: var(--input-font_textTransform);
+}
+.input-font {
+  font-family: var(--input-font_fontFamily);
+  font-weight: var(--input-font_fontWeight);
+  font-size: var(--input-font_fontSize);
+  font-style: var(--input-font_fontStyle);
+  line-height: var(--input-font_lineHeight);
+  letter-spacing: var(--input-font_letterSpacing);
+  text-transform: var(--input-font_textTransform);
+}
