@@ -2,9 +2,6 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: true,
   loading: '~/components/utilities/Loader.vue',
-  /*loading: {
-    color: '#fff',
-  },*/
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -28,6 +25,16 @@ export default {
       }
     ]
   },
+  transition: {
+    name: 'page',
+    mode: 'out-in',
+    beforeEnter (el) {
+      console.log('Before enter...');
+    },
+    afterLeave (el) {
+      console.log('After leave...');
+    }
+  },
   
   // Router property -  https://nuxtjs.org/docs/2.x/features/file-system-routing#the-router-property
   router: {
@@ -50,6 +57,9 @@ export default {
   plugins: [
     { src: '~/plugins/swup.js', ssr: false },
   ],
+  image: {
+    domains: ['ludwig.local']
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
@@ -71,6 +81,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/style-resources',
+    '@nuxt/image',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

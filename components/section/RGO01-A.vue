@@ -1,11 +1,14 @@
 <template>
   <section class="RGO01-A">
     <div class="">
-      <h1>{{ title }}</h1>
-      <h4>{{ subtitle }}</h4>
-      <div class="wyswig" v-html="text"></div>
-      <a v-if="link" :href="link.value">{{ link.value }}</a>
-      <a v-if="link2" :href="link2.value">{{ link2.value }}</a>
+      <h1>{{ title.value }}</h1>
+      <h4>{{ subtitle.value }}</h4>
+      <div class="wyswig" v-html="text.value"></div>
+      <nuxt-link v-if="link" v-bind="link.attributes">{{ link.optionsValue.title  }}</nuxt-link>
+      <nuxt-link v-if="link2" v-bind="link2.attributes">{{ link2.optionsValue.title }}</nuxt-link>
+      <img v-if="img_RGO01A.value" v-bind="img_RGO01A.attributes" />
+      <!-- video -->
+      <video v-if="video.value" v-bind="video.attributes" controls></video>
     </div>
   </section>
 </template>
@@ -19,21 +22,16 @@ export default {
     text: null,
     title: null,
     subtitle: null,
-  }
-  }
+    img_RGO01A: null,
+    video: null,
+  },
+}
 </script>
 
 <style lang="scss" scoped>
-/*.RGO01-A {
-  display: flex;
-  background: $primary_bg;
-  margin: 16px;
-  padding: 16px;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
-  color: $paragraph_color;
-  border-radius: 5px;
-  &:first-child {
-    margin-top: $nav-height;
-  }
-}*/
+img{
+  width: 100%;
+  border-radius: 3px;
+  margin-top: 10px;
+}
 </style>

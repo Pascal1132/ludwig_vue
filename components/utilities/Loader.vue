@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div class="loading-page">
+    <div class="loading-page" v-if="loading" :class="{ animation: willChange }">
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -8,96 +13,84 @@
 <script>
 export default {
   data: () => ({
-    isStarted: false,
+    loading: false,
+    willChange: false,
   }),
   methods: {
     start() {
-      /*if (
-        !document.documentElement.classList.contains('is-animating') &&
-        !this.isStarted
-      ) {
-        this.isStarted = true
-        setTimeout(() => {
-          document.documentElement.classList.remove('loaded')
-        }, 300)
-        document.documentElement.classList.add('is-animating')
-      }*/
+      this.loading = true
     },
-    finish() {
-      // remove is-animating class from <html>
 
-      /*document.documentElement.classList.remove('is-animating')
-      document.documentElement.classList.remove('first-load')
+    finish() {
+      this.willChange = true
       setTimeout(() => {
-        document.documentElement.classList.add('loaded')
-        this.isStarted = false
-      }, 500)*/
+        this.loading = false
+        this.willChange = false
+      }, 250)
     },
   },
-  mounted() {
-    // onbeforeunload event
-    /*window.addEventListener('beforeunload', (e) => {
-      e.preventDefault()
-      e.stopImmediatePropagation()
-      this.start()
-    })*/
-  },
+  mounted() {},
 }
 </script>
 
 <style lang="scss">
-html {
-  /*.is-animating {
-    .loading-page {
-      animation: slideIn 0.5s;
-      transform: translateX(0) translateY(0);
-    }
-  }
-
-  .loading-page {
-    position: fixed;
-    display: block;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: $dark;
-    overflow: hidden;
+.loading-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 0.25s ease-in-out;
+  z-index: 9999;
+  //simple dots animation for Loader
+  .dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     text-align: center;
-    font-size: 30px;
-    font-family: sans-serif;
-    z-index: 999;
-    color: $white;
-  }
-
-  &:not(.is-animating) {
-    .loading-page {
-      animation: slideOut 0.5s;
-      transform: translateX(0) translateY(100%);
+    color: #fff;
+    animation: fadeIn 0.25s ease-in-out;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100px;
+    height: 50px;
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 5px;
+      background-color: $primary_color;
+      border: 2px solid $white;
+      animation-delay: 0.15s;
+      animation-iteration-count: infinite;
+      animation-duration: 0.5s;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+      animation-direction: alternate;
+      animation-play-state: running;
+      animation-name: dot;
+    }
+    .dot:nth-child(1) {
+      animation-delay: 0.15s;
+    }
+    .dot:nth-child(2) {
+      animation-delay: 0.35s;
+    }
+    .dot:nth-child(3) {
+      animation-delay: 0.50s;
     }
   }
-  &:not(.loaded) {
-    overflow: hidden;
-  }
-}
-@keyframes slideIn {
-  0% {
-    // from top right
-    transform: translateX(0) translateY(-100%);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
-}
-@keyframes slideOut {
-  0% {
-    transform: translateY(0) translateX(0);
-    opacity: 1;
-  }
-  100% {
-    // to bottom left
-    transform: translateX(0) translateY(100%);
-    opacity: 0.8;
+
+  &.animation {
+    animation: fadeOut 0.25s linear;
   }
 }
 @keyframes fadeOut {
@@ -105,7 +98,23 @@ html {
     opacity: 1;
   }
   100% {
-    opacity: 0.8;
-  }*/
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes dot {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>

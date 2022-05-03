@@ -5,6 +5,7 @@ export default class Field implements IDuckClass{
     type: string;
     value: any;
     optionsValue: any;
+    attributes: any;
 
     static get FIELD_TYPES() {
         return [
@@ -45,16 +46,40 @@ export default class Field implements IDuckClass{
                 return this.value;
         }
     }
+
+    // Maybe add to API
+    generateTagAttributes() {
+        let attributes = <any>{};
+        // Switch the type of the field
+        switch (this.type) {
+            case 'link':
+                attributes['to'] = this.value;
+                attributes['target'] = this.optionsValue?.target;
+                break;
+            case 'imageupload':
+                if (this.optionsValue?.isBundle){
+                    attributes['src'] = this.value.desktop;
+                }
+                
+                break;
+            case 'fileupload':
+                attributes['src'] = this.value;
+                break;
+        }
+        return attributes;
+    }
     toJSON() {
         return {
             name: this.name,
             type: this.type,
             value: this.value,
             optionsValue: this.optionsValue,
+            attributes: this.attributes
         }
     }
     static fromJSON(json: any) {
         let field_obj = new Field(json.name, (json.type ?? 'text').toLowerCase(), json.value, json.optionsValue);
+        field_obj.attributes = field_obj.generateTagAttributes();
         return field_obj;
     }
 }

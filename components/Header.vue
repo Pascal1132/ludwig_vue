@@ -21,9 +21,9 @@
           </div>
         </div>
         <div v-else>
-          <nuxt-link :to="menu.url[language]" class="nav-link">
+          <nuxt-link :prefetch="false" :to="menu.url[language]" class="nav-link">
             {{(menu.title[language])}}
-          </nuxt-link>
+          </nuxt-link >
         </div>
       </div>
     </div>
