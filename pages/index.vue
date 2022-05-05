@@ -49,11 +49,11 @@ const fetchObjectsFromSectionCode = async (
   return props
 }
 
-const fieldsToProps = async function (
+const fieldsToProps = async (
   fields: Field[],
   sectionCode: string,
   store: Store<any>,
-) {
+) =>{
   let props = <any>{}
   fields.forEach((field: Field) => {
     // replace the - char in field name

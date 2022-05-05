@@ -1,6 +1,5 @@
 
 import axios from 'axios';
-import https from 'https';
 import Configuration from '~/modules/rubberduck/Aggregate/Configuration';
 import Pageable from '~/modules/rubberduck/Aggregate/Pageable';
 
@@ -27,31 +26,29 @@ export const mutations = {
 export const actions = {
     async fetchCurrentPageable({ commit }, route) {
         let result = {};
+        let res;
         try {
-            result = await axios.get(`http://localhost:3000/rubberduck/pageable?route=${route.path}`);
+            result = await axios.get(`http://localhost:3001/rubberduck/pageable?route=${route.path}`);
+            res = await result.data;
         } catch (error) {
-            result = error.response;
+            res = await error.response?.data;
         }
-        let res = await result.data;
-
-        // Add html to the store
-        //if route.path in storage/routes.json
         let pageable = null;
-        if (res.pageable) {
+        if (res?.pageable) {
             pageable = Pageable.fromJSON(res.pageable);
             commit('SET_PAGEABLE', pageable);
         }
-        if (res.language) {
+        if (res?.language) {
             commit('SET_LANGUAGE', res.language);
         }
-        if (res.routes) {
+        if (res?.routes) {
             commit('SET_ROUTES', res.routes);
         }
 
         return pageable;
     },
     async fetchConfiguration({ commit }) {
-        let result = await axios.get(`http://localhost:3000/rubberduck/configuration`);
+        let result = await axios.get(`http://localhost:3001/rubberduck/configuration`);
         let res = await result.data;
         let configuration = null;
         if (res.configuration) {
@@ -60,11 +57,11 @@ export const actions = {
         commit('SET_CONFIGURATION', configuration);
         return configuration;
     },
-    async fetchObjects({state}, {name, ids}) {
+    async fetchObjects({ state }, { name, ids }) {
         const language = state.language;
-        let result = await axios.get(`http://localhost:3000/rubberduck/objects/${name}`, {
+        let result = await axios.get(`http://localhost:3001/rubberduck/objects/${name}`, {
             params: {
-                ids: JSON.stringify({ids: ids, language: language})
+                ids: JSON.stringify({ ids: ids, language: language })
             }
         });
         let res = await result.data;

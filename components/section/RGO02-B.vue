@@ -13,6 +13,8 @@ export default {
     text: null,
     title: null,
     subtitle: null,
+    img_RGO02B: null,
+    video: null,
   },
 }
 </script>

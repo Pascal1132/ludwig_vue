@@ -15,22 +15,25 @@ export default {
   data: () => ({
     loading: false,
     willChange: false,
+    timestamp: 0,
   }),
   methods: {
     start() {
-      this.loading = true
+      this.loading = true;
+      this.timestamp = Date.now();
     },
 
     finish() {
-      this.willChange = true
+      this.willChange = true;
       setTimeout(() => {
-        this.loading = false
-        this.willChange = false
-      }, 250)
+        this.loading = false;
+        this.willChange = false;
+      }, 200);
+      console.log(Date.now() - this.timestamp + 'ms');
     },
   },
   mounted() {},
-}
+};
 </script>
 
 <style lang="scss">
@@ -40,14 +43,14 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  //background: rgba(0, 0, 0, 1);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   text-align: center;
   color: #fff;
-  animation: fadeIn 0.25s ease-in-out;
+  animation: fadeIn 0.1s ease-in-out;
   z-index: 9999;
   //simple dots animation for Loader
   .dots {
@@ -59,7 +62,7 @@ export default {
     color: #fff;
     animation: fadeIn 0.25s ease-in-out;
     z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.9);
     width: 100px;
     height: 50px;
     .dot {
@@ -71,7 +74,7 @@ export default {
       border: 2px solid $white;
       animation-delay: 0.15s;
       animation-iteration-count: infinite;
-      animation-duration: 0.5s;
+      animation-duration: 0.2s;
       animation-fill-mode: both;
       animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
       animation-direction: alternate;
@@ -79,13 +82,13 @@ export default {
       animation-name: dot;
     }
     .dot:nth-child(1) {
-      animation-delay: 0.15s;
+      animation-delay: 0.1s;
     }
     .dot:nth-child(2) {
-      animation-delay: 0.35s;
+      animation-delay: 0.2s;
     }
     .dot:nth-child(3) {
-      animation-delay: 0.50s;
+      animation-delay: 0.3s;
     }
   }
 

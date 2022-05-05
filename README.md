@@ -1,5 +1,10 @@
 # Ludwig
 
+THIS PROJECT STRUCTURE IS AS FOLLOWS:
+    [FRONTEND (Run with npm run dev (or build and start for prod))] 
+    ->  [SERVER (Run with node server.js in root project)] 
+        -> [API (External that is not part of the project and that is linked to a database)]
+
 ## Build Setup
 
 ```bash

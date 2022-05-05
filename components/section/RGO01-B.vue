@@ -21,6 +21,8 @@ export default {
     text: null,
     title: null,
     subtitle: null,
+    video: null,
+    img_RGO01B: null,
   },
 }
 </script>

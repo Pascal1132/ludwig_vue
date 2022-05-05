@@ -20,12 +20,9 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
     script: [
-      {
-        src: 'https://unpkg.com/swup@latest/dist/swup.min.js'
-      }
     ]
   },
-  transition: {
+  pageTransition: {
     name: 'page',
     mode: 'out-in',
     beforeEnter (el) {
@@ -54,9 +51,6 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: '~/plugins/swup.js', ssr: false },
-  ],
   image: {
     domains: ['ludwig.local']
   },
@@ -70,6 +64,10 @@ export default {
     ]
   },
   telemetry: true,
+
+  server: {
+    port: 3000
+  },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -88,7 +86,8 @@ export default {
   build: {
   },
 
-  publicRuntimeConfig: {
-    apiUrl: 'https://ludwig.local' || 'http://localhost:3000' // process.env.NODE_ENV === 'production' ? 'https://api.example.com' : 'http://localhost:3000'
-  }
+  axios: {
+    baseURL: 'http://localhost:3001',
+  },
+
 }

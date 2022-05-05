@@ -1,11 +1,11 @@
 <template>
-    <section class="RGO04">
-        rwasr
+    <section class="RGO13">
+        RGO13
     </section>
 </template>
 <script>
 export default {
-    name: 'RGO04',
+    name: 'RGO13',
     props: {
         section: null,
         link: null,
@@ -14,6 +14,7 @@ export default {
         title: null,
         subtitle: null,
     },
+    
 }
 </script>
 

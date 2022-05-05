@@ -1,4 +1,3 @@
-const https = require('https');
 
 export default async function ({ store, route, app }) {
     // Add the userAgent property to the context

@@ -6,6 +6,12 @@
 <script>
 export default {
     name: 'RGO06',
+    props: {
+        section: null,
+        quote: null,
+        author: null,
+        detail: null,
+    },
     
 }
 </script>
