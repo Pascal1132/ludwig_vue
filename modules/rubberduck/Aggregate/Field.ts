@@ -6,6 +6,7 @@ export default class Field implements IDuckClass{
     value: any;
     optionsValue: any;
     attributes: any;
+    data: any;
 
     static get FIELD_TYPES() {
         return [
@@ -27,7 +28,7 @@ export default class Field implements IDuckClass{
         ]
     }
 
-    constructor(name = ``, type = 'text', value = {}, optionsValue = {}) {
+    constructor(name = ``, type = 'text', value = {}, optionsValue = {}, data = {}) {
         // Verify if the type is valid with the values of the properties FIELD_TYPES
         if (!Field.FIELD_TYPES.includes(type)) {
             throw new Error(`The type "${type}" is not valid.`);
@@ -36,6 +37,7 @@ export default class Field implements IDuckClass{
         this.type = type;
         this.value = value;
         this.optionsValue = optionsValue;
+        this.data = data;
     }
 
     // Get the value of the field
@@ -74,11 +76,12 @@ export default class Field implements IDuckClass{
             type: this.type,
             value: this.value,
             optionsValue: this.optionsValue,
-            attributes: this.attributes
+            attributes: this.attributes,
+            data: this.data,
         }
     }
     static fromJSON(json: any) {
-        let field_obj = new Field(json.name, (json.type ?? 'text').toLowerCase(), json.value, json.optionsValue);
+        let field_obj = new Field(json.name, (json.type ?? 'text').toLowerCase(), json.value, json.optionsValue, json.data);
         field_obj.attributes = field_obj.generateTagAttributes();
         return field_obj;
     }

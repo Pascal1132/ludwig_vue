@@ -1,8 +1,8 @@
 <template>
   <section class="RGO01-B">
-    <h1>{{ title.value }}</h1>
-    <h4>{{ subtitle.value }}</h4>
-    <div class="wyswig" v-html="text.value"></div>
+    <h1 v-if="title">{{ title.value }}</h1>
+    <h4 v-if="subtitle">{{ subtitle.value }}</h4>
+    <div v-if="text" class="wyswig" v-html="text.value"></div>
     <nuxt-link v-if="link" v-bind="link.attributes">
       {{ link.optionsValue.title }}
     </nuxt-link>
@@ -25,4 +25,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  section {
+    border-radius: 0;
+  }
+</style>

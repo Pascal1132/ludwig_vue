@@ -38,11 +38,9 @@ app.get('/pageable', async (req, res) => {
         }
     })
     let routes = JSON.parse(fs.readFileSync("./storage/routes.json", "utf8"));
-    // search for route in routes.json
     let routeFound = routes.find(r => r.path == route);
-    // get request to process.env.API_URL + routeFound.path as params
-
     let result = (await request).data;
+
     let tmpLanguage = route.split('/')[1] ?? null;
     result.language = (tmpLanguage) ? tmpLanguage : 'fr';
     // list all routes
@@ -70,5 +68,23 @@ app.get('/configuration', async (req, res) => {
     };
     res.send(result);
 });
+
+app.get('/objects/:name', async (req, res) => {
+    let name = req.params.name;
+    let ids = req.query.ids;
+    console.log(ids);
+    let request = axios.get(process.env.API_URL + '/objects/' + name, {
+        httpsAgent: new https.Agent({
+            rejectUnauthorized: false
+            }),
+        params: {
+            name: name,
+            ids: ids
+        }
+    })
+    let result = (await request).data;
+    res.send(result);
+});
+
 
 module.exports = { path: '/rubberduck', handler: app }

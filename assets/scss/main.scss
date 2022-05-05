@@ -38,56 +38,29 @@ a {
   }
 }
 
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
 // TEMPORARY STYLE SECTION
 section {
   display: flex;
   background: $primary_bg;
   flex-direction: column;
-  margin: 16px;
-  padding: 16px;
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 0.5em;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
   color: $paragraph_color;
-  border-radius: 5px;
   &:nth-child(odd) {
     background: $secondary_bg;
     color: $secondary_color;
   }
   margin-top: 2em;
-}
-.transition-fade {
-  transition: 0.4s;
-  opacity: 1;
-  // each even section slide left
-  section:nth-child(even) {
-    transition: 0.4s;
-    transform: translateX(0%);
-  }
-  // each odd section slide right
-  section:nth-child(odd) {
-    transition: 0.4s;
-    transform: translateX(0%);
-  }
-}
-
-html.is-animating .transition-fade {
-  transition: 0.4s;
-  opacity: 0.5;
-  section:nth-child(even) {
-    transform: translateX(-100%);
-  }
-  // each odd section slide right
-  section:nth-child(odd) {
-    transform: translateX(100%);
-  }
-}
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.2s;
-  transform: translateY(0);
-  opacity: 1;
-}
-.page-enter,
-.page-leave-to {
-  opacity: 0;
-  transform: translateY(20px);
 }

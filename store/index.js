@@ -33,7 +33,7 @@ export const actions = {
             result = error.response;
         }
         let res = await result.data;
-        
+
         // Add html to the store
         //if route.path in storage/routes.json
         let pageable = null;
@@ -47,7 +47,7 @@ export const actions = {
         if (res.routes) {
             commit('SET_ROUTES', res.routes);
         }
-        
+
         return pageable;
     },
     async fetchConfiguration({ commit }) {
@@ -59,7 +59,18 @@ export const actions = {
         }
         commit('SET_CONFIGURATION', configuration);
         return configuration;
+    },
+    async fetchObjects({state}, {name, ids}) {
+        const language = state.language;
+        let result = await axios.get(`http://localhost:3000/rubberduck/objects/${name}`, {
+            params: {
+                ids: JSON.stringify({ids: ids, language: language})
+            }
+        });
+        let res = await result.data;
+        return res;
     }
+
 }
 export const getters = {
     pageable: state => state.pageable,

@@ -4,6 +4,7 @@ export default class Section {
     code: string;
     component: string;
     fields: Field[];
+    props: any;
 
     constructor(code: string, component: string, fields: Field[]) {
         this.code = code;
@@ -21,6 +22,7 @@ export default class Section {
             code: this.code,
             component: this.component,
             fields: this.fields,
+            props: this.props
         }
     }
     static fromJSON(json: any) {
@@ -29,8 +31,8 @@ export default class Section {
             return field_obj;
         });
         // component from view path
-        let component = json.view.replace("/", "-");
+        let component = json.view?.replace("/", "-");
 
-        return new Section((json.code).toUpperCase(), component, fields);
+        return new Section((json.code)?.toUpperCase(), component, fields);
     }
 }

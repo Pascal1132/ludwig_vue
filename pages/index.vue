@@ -1,16 +1,70 @@
 <template>
-<transition >
-  <div class="content" :style="cssVars">
-    <template v-for="(section, i) in sections">
-      <component :key="i" :is="section.component" v-bind="fieldsToProps(section.fields)" :section="section" :data-section="section.component" />
-    </template>
-  </div>
+  <transition>
+    <div class="content" :style="cssVars">
+      <template v-for="(section, i) in sections">
+        <component
+          :key="i"
+          :is="section.component"
+          v-bind="section.props"
+          :section="section"
+          :data-section="section.component"
+        />
+      </template>
+    </div>
   </transition>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { Store } from 'vuex/types/index'
 import Field from '~/modules/rubberduck/Aggregate/Field'
+import Section from '~/modules/rubberduck/Aggregate/Section'
+import fieldObjects from '~/storage/fieldObjects.js'
+
+const fetchObjectsFromSectionCode = async (
+  sectionCode: string,
+  props: any,
+  store: Store<any>,
+) => {
+  // get the object where the section code is the key of fieldObjects
+  let sectionObjects =
+    fieldObjects[sectionCode as keyof typeof fieldObjects] ?? null
+  if (sectionObjects) {
+    // foreach key of the object, fetchObjects
+    let result = <any>{}
+    for (let key in sectionObjects) {
+      let object = sectionObjects[key as keyof typeof sectionObjects]
+      // get the props that has the same name of the object.field
+      let field = props[object.field]
+      if (field) {
+        // fetch the object from store
+        result[key] = await store.dispatch('fetchObjects', {
+          name: object.name,
+          ids: Object.values(field.value),
+        })
+      }
+    }
+    return { ...props, ...result }
+  }
+  return props
+}
+
+const fieldsToProps = async function (
+  fields: Field[],
+  sectionCode: string,
+  store: Store<any>,
+) {
+  let props = <any>{}
+  fields.forEach((field: Field) => {
+    // replace the - char in field name
+    if (field.name) {
+      let name = field.name.replace(/-/g, '')
+      props[name] = field
+    }
+  })
+  props = await fetchObjectsFromSectionCode(sectionCode, props, store)
+  return props
+}
 
 export default Vue.extend({
   data() {
@@ -20,13 +74,14 @@ export default Vue.extend({
       language: '',
     }
   },
-  fetch: async function () {
-    let pageable = await this.$store.getters.pageable
+  asyncData: async function ({ store, route }) {
+    let pageable = await store.getters.pageable
     let sections = pageable?.sections ?? []
-    let language = this.$route.params.lang
-    this.sections = sections
-    this.language = language
-    this.pageable = pageable
+    let language = route.params.lang
+    for (let section of sections) {
+      section.props = await fieldsToProps(section.fields, section.code, store)
+    }
+    return { sections, language, pageable }
   },
   layout({ store, route }) {
     return store.getters.pageable.layout
@@ -50,30 +105,9 @@ export default Vue.extend({
       }
     },
   },
-  beforeMount() {
-    console.log('mounted')
-  },
-  mounted() {
-    /*this.$nuxt.hook('page:start', ()=>{
-      console.log('page:start');
-    })
-    this.$nuxt.hook('page:finish', ()=>{
-      console.log('page:end');
-    })*/
-  },
-  methods: {
-    fieldsToProps(fields: Field[]) {
-        let props = <any>{};
-        fields.forEach((field: Field) => {
-          // replace the - char in field name
-          if (field.name) {
-          let name = field.name.replace(/-/g, '')
-            props[name] = field;
-          }
-        });
-        return props;
-    }
-  },
+  beforeMount() {},
+  mounted() {},
+  methods: {},
 })
 </script>
 
@@ -94,5 +128,4 @@ export default Vue.extend({
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9999;
 }
-
 </style>
