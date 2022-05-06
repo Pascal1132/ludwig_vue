@@ -16,4 +16,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+.RGO03 {
+  background-color: $footer_color_hover;
+}
+
+</style>

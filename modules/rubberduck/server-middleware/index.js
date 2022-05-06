@@ -40,7 +40,8 @@ app.use(cors({
          let tmpLanguage = route.split('/')[1] ?? null;
          result.language = (tmpLanguage) ? tmpLanguage : 'fr';
      } catch (error) {
-         if (error.response.status === 404) {
+         console.log(error);
+         if (error.response && error.response.status === 404) {
              status = 404;
              result = await error.response.data;
          }

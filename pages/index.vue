@@ -7,6 +7,7 @@
           :is="section.component"
           v-bind="section.props"
           :section="section"
+          :pageable="pageable"
           :data-section="section.component"
         />
       </template>

@@ -9,7 +9,6 @@ export default class Configuration implements IDuckClass {
 
     static fromJSON(json: any) {
         // for each menu object keys in the json object
-        
         let configuration = new Configuration(this._generateMenuFromNative(json.menus), json.colors);
         return configuration;
     }

@@ -1,6 +1,6 @@
 <template>
     <section class="RGO13">
-        RGO13
+        <div v-html="script.value"></div>
     </section>
 </template>
 <script>
@@ -8,11 +8,7 @@ export default {
     name: 'RGO13',
     props: {
         section: null,
-        link: null,
-        link2: null,
-        text: null,
-        title: null,
-        subtitle: null,
+        script: null,
     },
     
 }

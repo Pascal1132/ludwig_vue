@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.RGO07 {
+    background-color: $footer_color_hover;
+}
 </style>

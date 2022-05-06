@@ -20,6 +20,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
     script: [
+      { src: 'https://polyfill.io/v3/polyfill.min.js?features=WeakMap' },
     ]
   },
   pageTransition: {
@@ -32,6 +33,8 @@ export default {
       console.log('After leave...');
     }
   },
+
+  plugins: [{src: '~~/node_modules/vue-rellax/lib/nuxt-plugin', ssr: false}],
   
   // Router property -  https://nuxtjs.org/docs/2.x/features/file-system-routing#the-router-property
   router: {

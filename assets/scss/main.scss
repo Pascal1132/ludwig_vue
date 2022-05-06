@@ -1,6 +1,10 @@
 // BASE STYLESHEET ==========================================================
+@import "../lib/scss/functions.scss";
+
+//@import "../lib/scss/variables.scss";
 @import "variables";
 @import "fonts";
+@import "layout";
 @import "base";
 .padd {
   display: block;
@@ -49,18 +53,7 @@ a {
 }
 
 // TEMPORARY STYLE SECTION
-section {
-  display: flex;
-  background: $primary_bg;
-  flex-direction: column;
-  padding: 0.5em;
-  margin: 0.5em;
-  border-radius: 0.5em;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.5);
-  color: $paragraph_color;
-  &:nth-child(odd) {
-    background: $secondary_bg;
-    color: $secondary_color;
-  }
-  margin-top: 2em;
+.section {
+  background-color: #12202c;
+  opacity: 1;
 }
