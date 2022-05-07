@@ -1,96 +1,107 @@
 export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: true,
-  loading: '~/components/utilities/Loader.vue',
+    // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+    ssr: true,
+    loading: '~/components/utilities/Loader.vue',
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: 'Ludwig',
-    htmlAttrs: {
-      lang: 'en',
-      class: '',
+    // Global page headers: https://go.nuxtjs.dev/config-head
+    head: {
+        title: 'Ludwig',
+        htmlAttrs: {
+            lang: 'en',
+            class: '',
+        },
+        meta: [
+            { charset: 'utf-8' },
+            { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5.0, user-scalable=yes' },
+            { hid: 'description', name: 'description', content: '' },
+            { name: 'format-detection', content: 'telephone=no' }
+        ],
+        link: [
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        ],
+        script: [
+            { src: 'https://polyfill.io/v3/polyfill.min.js?features=WeakMap' },
+        ]
     },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5.0, user-scalable=yes' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    ],
-    script: [
-      { src: 'https://polyfill.io/v3/polyfill.min.js?features=WeakMap' },
-    ]
-  },
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in',
-    beforeEnter (el) {
-      console.log('Before enter...');
+    pageTransition: {
+        name: 'page',
+        mode: 'out-in',
     },
-    afterLeave (el) {
-      console.log('After leave...');
-    }
-  },
 
-  plugins: [{src: '~~/node_modules/vue-rellax/lib/nuxt-plugin', ssr: false}],
-  
-  // Router property -  https://nuxtjs.org/docs/2.x/features/file-system-routing#the-router-property
-  router: {
-    middleware: ['injector'],
-  },
+    plugins: [{ src: '~~/node_modules/vue-rellax/lib/nuxt-plugin', ssr: false },
+        { src: '~/plugins/fontawesome.js', ssr: false }
+    ],
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '@/assets/scss/main.scss',
-    '@/assets/scss/variables.scss',
-  ],
+    // Router property -  https://nuxtjs.org/docs/2.x/features/file-system-routing#the-router-property
+    router: {
+        middleware: ['injector'],
+    },
 
-  styleResources: {
+    // Global CSS: https://go.nuxtjs.dev/config-css
     scss: [
-      '@/assets/scss/variables.scss',
-    ]
-  },
+        '@/assets/lib/scss/functions.scss',
+        '@/assets/scss/variables.scss',
+        '@/assets/scss/fonts.scss',
+        '@/assets/scss/layouts.scss',
+        '@/assets/scss/base.scss',
+        '@/assets/scss/main.scss',
+    ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  image: {
-    domains: ['ludwig.local']
-  },
+    styleResources: {
+        scss: [
+            '@/assets/scss/variables.scss',
+            '@/assets/scss/fonts.scss',
+            '@/assets/scss/base.scss',
+        ]
+    },
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: {
-    dirs: [
-      '~/components',
-      {path: '~/components/section', prefix: 'section'},
-      '~/components/utilities',
-    ]
-  },
-  telemetry: true,
+    // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+    image: {
+        domains: ['ludwig.local']
+    },
 
-  server: {
-    port: 3000
-  },
+    // Auto import components: https://go.nuxtjs.dev/config-components
+    components: {
+        dirs: [
+            '~/components',
+            { path: '~/components/section', prefix: 'section' },
+            '~/components/utilities',
+        ]
+    },
+    telemetry: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
-    '@/modules/rubberduck'
-  ],
+    server: {
+        port: 3000
+    },
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxtjs/style-resources',
-    '@nuxt/image',
-  ],
+    // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+    buildModules: [
+        // https://go.nuxtjs.dev/typescript
+        '@nuxt/typescript-build',
+        '@/modules/rubberduck',
+        '@nuxtjs/fontawesome',
+    ],
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  },
+    fontawesome: {
+        component: 'font-awesome-icon',
+        icons: {
+            solid: true,
+            brands: true
+        },
+    },
 
-  axios: {
-    baseURL: 'http://localhost:3001',
-  },
+
+    // Modules: https://go.nuxtjs.dev/config-modules
+    modules: [
+        '@nuxtjs/style-resources',
+        '@nuxt/image',
+    ],
+
+    // Build Configuration: https://go.nuxtjs.dev/config-build
+    build: {},
+
+    axios: {
+        baseURL: 'http://localhost:3001',
+    },
 
 }

@@ -1,7 +1,6 @@
 {
     "main_menu": {
-        "urls": [
-            {
+        "urls": [{
                 "type": {
                     "fr": "submenu",
                     "en": "submenu"
@@ -10,8 +9,7 @@
                     "fr": "Thorens",
                     "en": "Thorens"
                 },
-                "urls": [
-                    {
+                "urls": [{
                         "type": {
                             "fr": "internal",
                             "en": "internal"
@@ -44,7 +42,7 @@
                         },
                         "url": {
                             "fr": "/fr/etudes-de-cas",
-                            "en":   "/en/case-study"
+                            "en": "/en/case-study"
                         },
                         "attributes": {
                             "fr": {
@@ -65,8 +63,8 @@
                             "en": "About Us"
                         },
                         "url": {
-                            "fr":   "/fr/a-propos",
-                            "en":  "/en/about-us"
+                            "fr": "/fr/a-propos",
+                            "en": "/en/about-us"
                         },
                         "attributes": {
                             "fr": {
@@ -154,8 +152,7 @@
                     "fr": "Candidats",
                     "en": "Candidates"
                 },
-                "urls": [
-                    {
+                "urls": [{
                         "type": {
                             "fr": "internal",
                             "en": "internal"
@@ -210,8 +207,7 @@
                     "fr": "Employeur",
                     "en": "Employer"
                 },
-                "urls": [
-                    {
+                "urls": [{
                         "type": {
                             "fr": "internal",
                             "en": "internal"
@@ -282,8 +278,7 @@
         ]
     },
     "top_menu": {
-        "urls": [
-            {
+        "urls": [{
                 "type": {
                     "fr": "internal",
                     "en": "internal"

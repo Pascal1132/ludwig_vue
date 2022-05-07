@@ -12,11 +12,10 @@
     "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
   },
   "dependencies": {
-    "@fortawesome/free-brands-svg-icons": "6.1.1",
-    "@fortawesome/free-solid-svg-icons": "6.1.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@nuxt/image": "^0.6.2",
     "@nuxt/typescript-build": "^2.1.0",
-    "@nuxtjs/fontawesome": "1.1.2",
     "@nuxtjs/style-resources": "^1.2.1",
     "@swup/debug-plugin": "^1.0.3",
     "axios": "0.27.1",
@@ -33,7 +32,10 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
-    "sass": "latest",
-    "sass-loader": "^10.1.1"
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@nuxtjs/fontawesome": "^1.1.2",
+    "sass": "^1.51.0",
+    "sass-loader": "^10.2.1"
   }
 }

@@ -72,16 +72,7 @@ export default class Field implements IDuckClass {
         this.data.backgroundDataAttributes = {
           "data-backgrounds": this.value.desktop,
           style: `
-                background-image: url("${this.value.desktop}");
-              
-                /* Set a specific height */
-                min-height: 500px;
-              
-                /* Create the parallax scrolling effect */
-                background-attachment: fixed;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;`,
+                background-image: url("${this.value.desktop}")`,
         };
 
         break;
