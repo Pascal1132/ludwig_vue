@@ -1,0 +1,33 @@
+
+// Easing functions
+$bezier: cubic-bezier(.68,.16,.39,.98);
+$bounce: cubic-bezier(.79,2.25,.65,.5);
+$transition: .35s $bezier;
+
+// Media query sizes
+$laptop: "screen and (max-width: 1440px)";
+$above_tablets: "screen and (min-width: 1025px)";
+$tablets: "screen and (max-width: 1024px)";
+$phones: "screen and (max-width: 768px)";
+$mobile: "screen and (max-width: 550px)";
+$small_phones: "screen and (max-width: 375px)";
+
+// Element sizes
+$wrap-width: 7.5vw;
+$padd-height: 120px;
+$flex_gap: 30px;
+
+:root{
+    // SIZES
+    --wrap: #{$wrap-width};
+    --padd: #{$padd-height};
+    --gap: #{$flex_gap};
+    --flex-wrap: 600px;
+
+    @media #{$tablets}{
+        --wrap: #{$wrap-width * 0.6};
+    }
+    @media screen and (max-width: 900px) {
+        --gap: #{math.div($flex_gap, 2) * .66};
+    }
+}

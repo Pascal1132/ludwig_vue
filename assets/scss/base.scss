@@ -19,12 +19,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.padd {
-    display: block;
-    position: relative;
-    width: 100%;
-    padding: 50px 0;
-}
+
 
 body {
     font-size: 27px;
@@ -45,7 +40,9 @@ textarea,
 ul {
     list-style: none;
 }
-
+.flex--gap>* {
+    padding: var(--gap);
+}
 p,
 li,
 span.normal-text,
@@ -60,4 +57,39 @@ a {
     &:hover {
         color: $secondary_color;
     }
+}
+
+// RUN FOR GLOBAL PAGE IN CSS
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.page-enter-active,
+.page-leave-active {
+    transition: all 0.5s ease;
+}
+.page-enter-from,
+.page-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.padd {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: clamp(75px, 15vh, 190px) 0;
+}
+
+.wrap {
+    padding-left: var(--wrap,10vw);
+    padding-right: var(--wrap,10vw);
+    margin: 0 auto;
 }

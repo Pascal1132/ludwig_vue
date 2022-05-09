@@ -1,8 +1,10 @@
 <template>
   <div>
-    <!-- page -->
     <Header />
-    <Nuxt/>
+    <main id="main">
+      <!-- page -->
+      <Nuxt />
+    </main>
     <Footer />
   </div>
 </template>

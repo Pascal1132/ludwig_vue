@@ -1,142 +1,120 @@
-// Accessible everywhere
-// Element sizes
-$wrap-width: 7.5vw;
-$padd-height: 120px;
+//  ██████╗ ██████╗ ██╗      ██████╗ ██████╗ ███████╗
+// ██╔════╝██╔═══██╗██║     ██╔═══██╗██╔══██╗██╔════╝
+// ██║     ██║   ██║██║     ██║   ██║██████╔╝███████╗
+// ██║     ██║   ██║██║     ██║   ██║██╔══██╗╚════██║
+// ╚██████╗╚██████╔╝███████╗╚██████╔╝██║  ██║███████║
+//  ╚═════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+
+$transparent: rgba(255, 255, 255, 0%); // Transparent working in safari
+$white: #fff; // Main white color
+$black: #000; // Main black color
+
+// ███████╗██╗███████╗███████╗███████╗
+// ██╔════╝██║╚══███╔╝██╔════╝██╔════╝
+// ███████╗██║  ███╔╝ █████╗  ███████╗
+// ╚════██║██║ ███╔╝  ██╔══╝  ╚════██║
+// ███████║██║███████╗███████╗███████║
+// ╚══════╝╚═╝╚══════╝╚══════╝╚══════╝
+
+$wrap-width: 10vw;
+$padd-height: 190px;
 $flex_gap: 30px;
-// Easing functions
-$bezier: cubic-bezier(0.68, 0.16, 0.39, 0.98);
-$bounce: cubic-bezier(0.79, 2.25, 0.65, 0.5);
-$transition: 0.35s $bezier;
 
-// Media query sizes
-$laptop: "screen and (max-width: 1440px)";
-$above_tablets: "screen and (min-width: 1025px)";
-$tablets: "screen and (max-width: 1024px)";
-$phones: "screen and (max-width: 768px)";
-$mobile: "screen and (max-width: 550px)";
-$small_phones: "screen and (max-width: 375px)";
+$top-bar-height: 55px;
+$nav-height: 190px;
+$nav-scroll-height: 80px;
 
-:root {
-  --white: #fff;
-  --black: #000;
-  --main_bg: #fff;
-  --alt_bg: #eee;
-  --main_color: #2f2d2d;
-  --paragraph_color: #505050;
-  --contrast_bg: #12202c;
-  --contrast_color: #fff;
-  --primary_bg: #72a9c9;
-  --primary_color: #fff;
-  --secondary_bg: #496070;
-  --secondary_color: #fff;
-  --nav_bg: #12202c;
-  --nav_color: #fff;
-  --nav_color_hover: #72a9c9;
-  --menu_bg: #12202c;
-  --menu_color: #fff;
-  --menu_color_hover: #72a9c9;
-  --footer_bg: #12202c;
-  --footer_color: #fff;
-  --footer_color_hover: #72a9c9;
-  --header_color: #fff;
-  --border_color: #dddcdc;
-  --form_input_bg: #eee;
-  --form_input_color: #2f2d2d;
-  --form_border_error_color: #ce4c4c;
-  --main_bg-rgb: 255, 255, 255;
-  --alt_bg-rgb: 238, 238, 238;
-  --main_color-rgb: 47, 45, 45;
-  --paragraph_color-rgb: 80, 80, 80;
-  --contrast_bg-rgb: 18, 32, 44;
-  --contrast_color-rgb: 255, 255, 255;
-  --primary_bg-rgb: 114, 169, 201;
-  --primary_color-rgb: 255, 255, 255;
-  --secondary_bg-rgb: 73, 96, 112;
-  --secondary_color-rgb: 255, 255, 255;
-  --nav_bg-rgb: 18, 32, 44;
-  --nav_color-rgb: 255, 255, 255;
-  --nav_color_hover-rgb: 114, 169, 201;
-  --menu_bg-rgb: 18, 32, 44;
-  --menu_color-rgb: 255, 255, 255;
-  --menu_color_hover-rgb: 114, 169, 201;
-  --footer_bg-rgb: 18, 32, 44;
-  --footer_color-rgb: 255, 255, 255;
-  --footer_color_hover-rgb: 114, 169, 201;
-  --header_color-rgb: 255, 255, 255;
-  --border_color-rgb: 221, 220, 220;
-  --form_input_bg-rgb: 238, 238, 238;
-  --form_input_color-rgb: 47, 45, 45;
-  --wrap: 10vw;
-  --padd: 190px;
-  --gap: 30px;
-  --nav-height: 190px;
-  --topbar-height: 55px;
+// ████████╗██████╗  █████╗ ███╗   ██╗███████╗██╗████████╗██╗ ██████╗ ███╗   ██╗███████╗
+// ╚══██╔══╝██╔══██╗██╔══██╗████╗  ██║██╔════╝██║╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
+//    ██║   ██████╔╝███████║██╔██╗ ██║███████╗██║   ██║   ██║██║   ██║██╔██╗ ██║███████╗
+//    ██║   ██╔══██╗██╔══██║██║╚██╗██║╚════██║██║   ██║   ██║██║   ██║██║╚██╗██║╚════██║
+//    ██║   ██║  ██║██║  ██║██║ ╚████║███████║██║   ██║   ██║╚██████╔╝██║ ╚████║███████║
+//    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
 
-  // SIZES
-  --wrap: $wrap-width;
-  --padd: $padd-height;
-  --gap: $flex_gap;
-  --flex-wrap: 600px;
+$transition_duration: 0.35s; // Durée générale des transitions
+$transition_curve: $bezier; // $bezier, ease-in, ease-out, ease-in-out...
+// Paramètres généraux de transition
+$transition: #{$transition_duration}+" "+#{$transition_curve};
 
-  @media #{$tablets} {
-    --wrap: #{$wrap-width * 0.6};
-  }
-  @media screen and (max-width: 900px) {
-    --gap: #{calc($flex-gap / 2) * 0.66};
-  }
+.privacy-container{
+    // GDPR
+    --privacy-wrap: #{$wrap-width};
+    --privacy-bg: #{$main_bg};
+    --privacy-paragraph: #{$paragraph_color};
+    --privacy-btn-color: #{$main_color};
+    --privacy-btn-hover-color: #{$primary_bg};
+    --privacy-checkbox-color: #{$primary_bg};
 }
-// SCSS VARIABLES
-$white: var(--white, #fff);
-$black: var(--black, #000);
-$main_bg: var(--main_bg, #fff);
-$alt_bg: var(--alt_bg, #eee);
-$main_color: var(--main_color, #2f2d2d);
-$paragraph_color: var(--paragraph_color, #505050);
-$contrast_bg: var(--contrast_bg, #12202c);
-$contrast_color: var(--contrast_color, #fff);
-$primary_bg: var(--primary_bg, #72a9c9);
-$primary_color: var(--primary_color, #fff);
-$secondary_bg: var(--secondary_bg, #496070);
-$secondary_color: var(--secondary_color, #fff);
-$nav_bg: var(--nav_bg, #12202c);
-$nav_color: var(--nav_color, #fff);
-$nav_color_hover: var(--nav_color_hover, #72a9c9);
-$menu_bg: var(--menu_bg, #12202c);
-$menu_color: var(--menu_color, #fff);
-$menu_color_hover: var(--menu_color_hover, #72a9c9);
-$footer_bg: var(--footer_bg, #12202c);
-$footer_color: var(--footer_color, #fff);
-$footer_color_hover: var(--footer_color_hover, #72a9c9);
-$header_color: var(--header_color, #fff);
-$border_color: var(--border_color, #dddcdc);
-$form_input_bg: var(--form_input_bg, #eee);
-$form_input_color: var(--form_input_color, #2f2d2d);
-$form_border_error_color: var(--form_border_error_color, #ce4c4c);
-$main_bg-rgb: var(--main_bg-rgb, 255, 255, 255);
-$alt_bg-rgb: var(--alt_bg-rgb, 238, 238, 238);
-$main_color-rgb: var(--main_color-rgb, 47, 45, 45);
-$paragraph_color-rgb: var(--paragraph_color-rgb, 80, 80, 80);
-$contrast_bg-rgb: var(--contrast_bg-rgb, 18, 32, 44);
-$contrast_color-rgb: var(--contrast_color-rgb, 255, 255, 255);
-$primary_bg-rgb: var(--primary_bg-rgb, 114, 169, 201);
-$primary_color-rgb: var(--primary_color-rgb, 255, 255, 255);
-$secondary_bg-rgb: var(--secondary_bg-rgb, 73, 96, 112);
-$secondary_color-rgb: var(--secondary_color-rgb, 255, 255, 255);
-$nav_bg-rgb: var(--nav_bg-rgb, 18, 32, 44);
-$nav_color-rgb: var(--nav_color-rgb, 255, 255, 255);
-$nav_color_hover-rgb: var(--nav_color_hover-rgb, 114, 169, 201);
-$menu_bg-rgb: var(--menu_bg-rgb, 18, 32, 44);
-$menu_color-rgb: var(--menu_color-rgb, 255, 255, 255);
-$menu_color_hover-rgb: var(--menu_color_hover-rgb, 114, 169, 201);
-$footer_bg-rgb: var(--footer_bg-rgb, 18, 32, 44);
-$footer_color-rgb: var(--footer_color-rgb, 255, 255, 255);
-$footer_color_hover-rgb: var(--footer_color_hover-rgb, 114, 169, 201);
-$header_color-rgb: var(--header_color-rgb, 255, 255, 255);
-$border_color-rgb: var(--border_color-rgb, 221, 220, 220);
-$form_input_bg-rgb: var(--form_input_bg-rgb, 238, 238, 238);
-$form_input_color-rgb: var(--form_input_color-rgb, 47, 45, 45);
-$wrap: var(--wrap, 10vw);
-$padd: var(--padd, 190px);
-$gap: var(--gap, 30px);
-$nav-height: var(--nav-height, 190px);
-$topbar-height: var(--topbar-height, 55px);
+
+// CSS
+:root {
+    // Hex values
+    --white: #{$white};
+    --black: #{$black};
+    --main_bg: #{$main_bg};
+    --alt_bg: #{$alt_bg};
+    --main_color: #{$main_color};
+    --paragraph_color: #{$paragraph_color};
+    --contrast_bg: #{$contrast_bg};
+    --contrast_color: #{$contrast_color};
+    --primary_bg: #{$primary_bg};
+    --primary_color: #{$primary_color}; 
+    --secondary_bg: #{$secondary_bg};
+    --secondary_color: #{$secondary_color};
+    --nav_bg: #{$nav_bg};
+    --nav_color: #{$nav_color};
+    --nav_color_hover: #{$nav_color_hover};
+    --menu_bg: #{$menu_bg};
+    --menu_color: #{$menu_color};
+    --menu_color_hover: #{$menu_color_hover};
+    --footer_bg: #{$footer_bg};
+    --footer_color: #{$footer_color};
+    --footer_color_hover: #{$footer_color_hover};
+    --header_color: #{$header_color};
+    --border_color: #{$border_color};
+    --form_input_bg: #{$form_input_bg};
+    --form_input_color: #{$form_input_color};
+    --form_border_error_color: #{$form_border_error_color};
+
+   // RGB variants for rgba functions
+    --main_bg-rgb: #{hexToRGB($main_bg)}; 
+    --alt_bg-rgb: #{hexToRGB($alt_bg)};
+    --main_color-rgb: #{hexToRGB($main_color)}; 
+    --paragraph_color-rgb: #{hexToRGB($paragraph_color)}; 
+    --contrast_bg-rgb: #{hexToRGB($contrast_bg)}; 
+    --contrast_color-rgb: #{hexToRGB($contrast_color)}; 
+    --primary_bg-rgb: #{hexToRGB($primary_bg)}; 
+    --primary_color-rgb: #{hexToRGB($primary_color)}; 
+    --secondary_bg-rgb: #{hexToRGB($secondary_bg)}; 
+    --secondary_color-rgb: #{hexToRGB($secondary_color)}; 
+    --nav_bg-rgb: #{hexToRGB($nav_bg)}; 
+    --nav_color-rgb: #{hexToRGB($nav_color)}; 
+    --nav_color_hover-rgb: #{hexToRGB($nav_color_hover)}; 
+    --menu_bg-rgb: #{hexToRGB($menu_bg)}; 
+    --menu_color-rgb: #{hexToRGB($menu_color)}; 
+    --menu_color_hover-rgb: #{hexToRGB($menu_color_hover)}; 
+    --footer_bg-rgb: #{hexToRGB($footer_bg)}; 
+    --footer_color-rgb: #{hexToRGB($footer_color)}; 
+    --footer_color_hover-rgb: #{hexToRGB($footer_color_hover)}; 
+    --header_color-rgb: #{hexToRGB($header_color)}; 
+    --border_color-rgb: #{hexToRGB($border_color)}; 
+    --form_input_bg-rgb: #{hexToRGB($form_input_bg)}; 
+    --form_input_color-rgb: #{hexToRGB($form_input_color)}; 
+
+    // SIZES
+    --wrap: #{$wrap-width};
+    --padd: #{$padd-height};
+    --gap: #{$flex-gap};
+    --nav-height: #{$nav-height};
+    --topbar-height: #{$top-bar-height};
+
+    @media #{$tablets}{
+        --nav-height: #{$nav-scroll-height};
+        --wrap: #{$wrap-width * 0.6};
+        --privacy-wrap: #{$wrap-width * 0.6};
+    }
+}
+
+.scroll{
+    --nav-height: #{$nav-scroll-height};
+}

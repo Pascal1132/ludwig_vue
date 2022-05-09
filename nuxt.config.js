@@ -29,7 +29,7 @@ export default {
     },
 
     plugins: [{ src: '~~/node_modules/vue-rellax/lib/nuxt-plugin', ssr: false },
-        { src: '~/plugins/fontawesome.js', ssr: false }
+    { src: '~/plugins/fontawesome.js', ssr: false }
     ],
 
     // Router property -  https://nuxtjs.org/docs/2.x/features/file-system-routing#the-router-property
@@ -38,20 +38,25 @@ export default {
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
-    scss: [
-        '@/assets/lib/scss/functions.scss',
-        '@/assets/scss/variables.scss',
-        '@/assets/scss/fonts.scss',
-        '@/assets/scss/layouts.scss',
-        '@/assets/scss/base.scss',
-        '@/assets/scss/main.scss',
+    css: [
+        '@/assets/scss/styles.scss',
     ],
 
     styleResources: {
         scss: [
+            '@/assets/lib/scss/variables.scss',
+            '@/assets/lib/scss/functions.scss',
+            '@/assets/scss/mixins.scss',
+            '@/assets/scss/fallback.scss',
             '@/assets/scss/variables.scss',
             '@/assets/scss/fonts.scss',
-            '@/assets/scss/base.scss',
+            /*'@/assets/scss/general.scss',
+            '@/assets/scss/utilities.scss',
+            '@/assets/scss/components.scss',
+            '@/assets/scss/forms.scss',
+            '@/assets/scss/layout.scss',
+            '@/assets/scss/keyframes.scss',
+            '@/assets/scss/base.scss',*/
         ]
     },
 
@@ -80,6 +85,8 @@ export default {
         '@nuxt/typescript-build',
         '@/modules/rubberduck',
         '@nuxtjs/fontawesome',
+        'nuxt-compress',
+        '@nuxtjs/pwa',
     ],
 
     fontawesome: {
@@ -98,7 +105,11 @@ export default {
     ],
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
-    build: {},
+    build: {
+        extend(_config, { loaders }) {
+            loaders.scss.additionalData = '@use "sass:math";'
+        }
+    },
 
     axios: {
         baseURL: 'http://localhost:3001',

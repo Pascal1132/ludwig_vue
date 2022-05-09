@@ -1,4 +1,5 @@
 <template>
+  <!--
   <section class="RGO12">
     <div class="breadcrumb" v-if="breadcrumb">
       <div>
@@ -15,22 +16,53 @@
         </span>
       </div>
     </div>
-  </section>
+  </section>-->
+  <div class="section RGO12 bg--main overflow">
+    <div class="relative">
+      <div class="wrap--half">
+        <div
+          class="flex flex--wrap flex--gap flex--forever justify--between align--center"
+        >
+          <nuxt-link
+            to="https://ludwig2.rubberduckcms.com/fr"
+            title="Retour"
+            class="btn--back"
+          >
+            <span class="btn__icon fas fa-caret-left"></span>
+            <span class="btn__text caps">Retour</span>
+          </nuxt-link>
+
+          <div class="breadcrumb">
+            <ul class="flex flex--wrap">
+              <li>
+                <nuxt-link
+                  to="https://ludwig2.rubberduckcms.com/fr"
+                  title="Ludwig, un nouveau thème pour RubberDuck"
+                  >Ludwig, un nouveau thème pour RubberDuck</nuxt-link
+                >
+              </li>
+              <li><span>Blogue</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 export default {
-  name: 'RGO12',
+  name: "RGO12",
   props: {
     section: null,
     breadcrumb: null,
   },
   computed: {
     backUrl() {
-      let len = this.breadcrumb?.data?.length || 0
-      return len > 1 ? this.breadcrumb.data[len - 2].url : null
+      let len = this.breadcrumb?.data?.length || 0;
+      return len > 1 ? this.breadcrumb.data[len - 2].url : null;
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

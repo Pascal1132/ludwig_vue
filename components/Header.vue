@@ -1,253 +1,774 @@
 <template>
-  <div class="nav">
-    <div class="nav-links">
-      <div v-for="(menu, index) in topMenu.urls" :key="index">
-        <div v-if="(menu.type[language] == 'submenu')">
-          <span class="nav-link" @click="open(index)">
-            {{(menu.title[language])}}
-          </span>
-          <div class="dropdown" :class="{ active: opened == index }">
-            <div class="dropdown-content">
-              <div
-                class="dropdown-content-link"
-                v-for="(submenu, index) in menu.urls"
-                :key="index"
+  <div>
+    <div class="nav__background"></div>
+    <div class="nav">
+      <div class="top-bar flex justify--between align--center">
+        <div class="top__coords flex align--center">
+          <div class="top__coord flex align--center">
+            <span class="top__icon fas fa-phone-alt"></span>
+            <span class="subtitle-font top__phone">
+              <a
+                href="tel:18449713825"
+                title="Appeler maintenant"
+                data-no-swup=""
+                >1-844-971-3825</a
               >
-                <a :href="submenu.url[language]">
-                  {{(submenu.title[language])}}
-                </a>
-              </div>
-            </div>
+            </span>
+          </div>
+          <div class="top__coord top__address flex align--center">
+            <span class="top__icon fas fa-map-marker-alt"></span>
+            <span class="subtitle-font top__address ellipsis">
+              <a
+                href="https://www.google.com/maps/place/444+rue+RubberDuck+Quacktown+Qu%C3%A9bec+H4H+4H4+Canada"
+                title="Voir sur Google Maps"
+                >444, rue RubberDuck Quacktown (Québec) H4H 4H4 Canada</a
+              >
+            </span>
           </div>
         </div>
-        <div v-else>
-          <nuxt-link :prefetch="false" :to="menu.url[language]" class="nav-link">
-            {{(menu.title[language])}}
-          </nuxt-link >
-        </div>
-      </div>
-    </div>
-    <!-- TOP-BAR -->
-    <!--<div class="top-bar">
-      <div class="top__coords">
-        <div class="phone-menu">
-          <a href="tel:5555555555" class="top__link" title="555 555 5555">
-            <span class="fas fa-mobile-alt"></span>
-            555 555 5555
-          </a>
-        </div>
-        <div class="top-menu">
-            <nuxt-link v-for="(menu, index) in topMenu.urls" :key="index" class="top__link" :to="menu.url[language]">
-              {{(menu.title[language])}}
-            </nuxt-link>
-        </div>
-      </div>
-      <div class="links">
-        <div class="separated-links">
+        <div class="top__links flex align--center">
           <span class="top__cart top__link">
-            <span class="far fa-shopping-cart"></span>
-            <span class="cart__current items_subtotal">0.00 $</span>
+            <span class="fas fa-shopping-bag"></span>
+            <span class="cart__current subtitle-font items_subtotal"
+              >0.00 €</span
+            >
           </span>
           <div class="top__currency top__link dropdown">
-            <span class="">CAD</span>
+            <span class="dropdown__current subtitle-font">EUR</span>
+
+            <ul class="dropdown__items">
+              <li>
+                <button
+                  type="button"
+                  data-currency="bcbcd6bd-d1a9-11ea-8b80-00505691f34d"
+                  class="set_currency subtitle-font"
+                >
+                  CAD
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="top__lang top__link dropdown" data-swup="2">
+            <span class="dropdown__current subtitle-font">fr</span>
+            <ul class="dropdown__items">
+              <li>
+                <a
+                  href="/en"
+                  class="subtitle-font"
+                  data-no-swup=""
+                  title="en"
+                  >en</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="top__lang top__link dropdown" >
-          <span class="dropdown__current">fr</span>
-<ul class="dropdown__items">
-            <li>
-              <a
-                href="https://daffy.rubberduckcms.com/en"
-                data-no-swup=""
-                title="en"
+      </div>
+      <div class="nav__bottom">
+        <nav class="nav__main">
+          <div class="flex justify--end align--center">
+            <div
+              class="nav__highlights list-item flex justify--between align--center"
+            >
+              <div class="nav__sublinks-background"></div>
+              <header class="nav__logo">
+                <a href="/fr" title="Daffy" class="active">
+                  <img
+                    src="/public/media/d189238a-301b-11eb-8e06-c3b592aaef0d.svg"
+                    alt=""
+                    loading="lazy"
+                  />
+                </a>
+              </header>
+              <ul
+                class="flex justify--between align--center flex-grow bottom__links"
               >
-                en
-              </a>
-            </li>
-          </ul>
-    <</div>
+                <li class="nav__not-menu link">
+                  <a
+                    class="nav__link no-sublink"
+                    href="/fr/services"
+                    title="Services &amp; Expertise"
+                  >
+                    Services &amp; Expertise
+                  </a>
+                </li>
+                <li class="nav__not-menu link">
+                  <a
+                    class="nav__link no-sublink"
+                    href="/fr/blogue"
+                    title="Blogues &amp; Nouvelles"
+                  >
+                    Blogues &amp; Nouvelles
+                  </a>
+                </li>
+                <li class="nav__not-menu link">
+                  <a
+                    class="nav__link no-sublink"
+                    href="/fr/reservation-rendez-vous"
+                    title="Réservation &amp; Rendez-vous"
+                  >
+                    Réservation &amp; Rendez-vous
+                  </a>
+                </li>
+                <li class="nav__not-menu link">
+                  <a
+                    class="nav__link no-sublink"
+                    href="/fr/catalogue-de-produits"
+                    title="Produits"
+                  >
+                    Produits
+                  </a>
+                </li>
+                <li class="styled_nav">
+                  <ul
+                    class="styled_nav-buttons flex justify--end align--center"
+                  >
+                    <li class="">
+                      <a
+                        class="nav__styled-btn nav__styled-btn--even"
+                        href="/fr/nous-joindre"
+                        title="Contactez-nous"
+                      >
+                        <span class="nav__styled-btn--even__text">
+                          Contactez-nous
+                        </span>
+                      </a>
+                    </li>
+                    <li class="">
+                      <a
+                        class="nav__styled-btn nav__styled-btn--odd"
+                        href="tel:450-657-8714"
+                        title="450-657-8714"
+                      >
+                        <span class="nav__styled-btn--odd__text">
+                          450-657-8714
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="nav__burger">
+              <button class="hamburger hamburger--spin-r">
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
-    MAIN-NAV
-    <div class="main-nav"></div>-->
   </div>
 </template>
 <script>
 export default {
-  name: 'Header',
+  name: "Header",
   data() {
     return {
-      title: 'Header',
+      title: "Header",
       topMenu: {
         urls: [],
       },
-      language: 'en',
+      language: "en",
       opened: null,
-    }
+    };
   },
   methods: {
     open(key) {
       if (this.opened == key) {
-        this.opened = null
+        this.opened = null;
       } else {
-        this.opened = key
+        this.opened = key;
       }
     },
   },
   fetch() {
-    this.title = this.$store.getters.pageable.title
-    this.topMenu = this.$store.getters.getMenu('top_menu')
+    this.title = this.$store.getters.pageable.title;
+    this.topMenu = this.$store.getters.getMenu("top_menu");
 
-    this.language = this.$store.getters.language
+    this.language = this.$store.getters.language;
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .nav {
-  transition: opacity 0.35s cubic-bezier(0.68, 0.16, 0.39, 0.98),
-    transform 0.35s cubic-bezier(0.68, 0.16, 0.39, 0.98);
+  transition: opacity $transition, transform $transition;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: $nav_bg;
-  color: $nav-color;
+  padding-left: calc(#{var(--wrap)} / 2);
+  color: var(--nav_color, $nav_color);
   z-index: 888;
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    align-items: space-between;
-    justify-content: center;
-    padding: 0.5rem 0;
-    .nav-link{
-      font-size: 1.7rem;
-      font-weight: 500;
-      color: $nav-color;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      &:hover {
-        color: $nav_color_hover;
+
+  .menu--shown &,
+  .cart--shown & {
+    .nav__bottom {
+      min-height: 0;
+    }
+
+    &__main .nav__highlights {
+      transition: visibility 0s $transition_duration, opacity $transition,
+        height $transition, padding $transition;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .top__coords {
+      @include transform(translateX(-100vw));
+    }
+  }
+  // Scrolled state
+  body.scroll:not(.menu--shown):not(.cart--shown) & {
+    transform: translateY(-$top-bar-height);
+
+    &__bottom {
+      .nav__main {
+        .nav__highlights {
+          height: var(--nav-height, $nav-height);
+        }
       }
-      &.active {
-        color: $nav_color_hover;
+
+      .nav__burger {
+        max-width: var(--nav-height, $nav-height);
+        max-height: var(--nav-height, $nav-height);
+      }
+    }
+
+    &__background {
+      opacity: 1;
+      @include transform(none);
+      box-shadow: 0 0 50px rgba(#{var(--main_bg-rgb), 5%});
+    }
+  }
+  // Hide the nav when changing page
+  .is-animating & {
+    @include transform(translateY(-100%));
+    opacity: 0;
+  }
+  // Completely hide the menu on a landing page
+  .is-landing-page & {
+    &,
+    &__background,
+    a {
+      display: none;
+    }
+  }
+
+  html:not(.has-desktop-menu) &__burger {
+    display: none;
+  }
+
+  // Scrolled background
+  &__background {
+    transition: all $transition;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height, $nav-height);
+    background-color: #{"rgba(var(--nav_bg-rgb), 0.8)"};
+    opacity: 0;
+    z-index: 99;
+    @include transform(scaleY(0));
+  }
+
+  // Logo box
+  &__logo {
+    width: 220px;
+    padding-right: 2.5vw;
+    flex-shrink: 0;
+
+    a {
+      display: inline-block;
+    }
+
+    img {
+      transition: max-height $transition;
+      max-height: calc(#{var(--nav-height)} - 20px);
+      width: 100%;
+      object-fit: contain;
+      object-position: left;
+    }
+  }
+
+  &__main {
+    // General main nav ul
+    ul:not(.dropdown__items) {
+      width: 100%;
+      height: 100%;
+    }
+
+    // General main nav li
+    .list-item {
+      height: 100%;
+    }
+
+    // General main nav a
+    .nav__link:not(.nav__styled-btn) {
+      @extend .subtitle-font;
+      color: var(--nav_color, $nav_color);
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    // Main nav highlights box
+    .nav__highlights {
+      transition: visibility 0s, opacity $transition_duration 0.25s ease-in,
+        height $transition, padding $transition;
+      position: relative;
+      height: var(--nav-height, $nav-height);
+      padding-right: calc(#{var(--nav-height)} + 40px);
+      flex-grow: 1;
+
+      .nav__sublinks-background {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        background-color: var(--main_bg, $main_bg);
+        padding: 90px 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: all $transition;
+      }
+
+      ul {
+        &.justify--end {
+          .nav__not-menu {
+            padding: 0 20px;
+          }
+        }
+
+        .nav__not-menu:not(.has-sublink) {
+          position: relative;
+        }
+
+        .nav__not-menu {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          padding: 0 10px;
+
+          // a:not(.nav__styled-btn) {
+          a.no-sublink {
+            position: relative;
+            padding: 5px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              background-color: var(--main_bg, $main_bg);
+              width: 100%;
+              height: 1px;
+              left: 0;
+              bottom: 0;
+              @include transform(scaleX(0));
+              transform-origin: left;
+              transition: all $transition;
+            }
+
+            &:hover::before {
+              @include transform(none);
+            }
+          }
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .bottom__links {
+          justify-content: flex-end;
+
+          .link {
+            display: none;
+          }
+        }
+      }
+
+      @media (max-width: 540px) {
+        .bottom__links {
+          display: none;
+        }
+      }
+    }
+
+    // Dropdown main nav
+    .dropdown {
+      text-align: center;
+      text-transform: uppercase;
+
+      // Hover main nav
+      &:hover {
+        .dropdown {
+          &__parent::after {
+            transform: rotate(180deg);
+            color: var(--nav_color_hover, $nav_color_hover);
+          }
+
+          &__items {
+            background-color: var(--main_bg, $main_bg);
+            transform: scaleY(1);
+          }
+        }
+      }
+
+      // Main nav dropdown btn
+      &__parent {
+        display: block;
+        position: relative;
+        white-space: nowrap;
+
+        // Main nav dropdown btn ::after elmts
+        &::after {
+          @extend %fas;
+          display: inline-block;
+          transition: transform $transition, color $transition;
+          content: "\f0d7";
+          margin-left: 5px;
+          color: var(--nav_color, $nav_color);
+        }
+      }
+
+      // Main nav dropdown ul
+      &__navlink {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 89px 0;
+      }
+
+      &__items {
+        transition: transform $transition;
+        position: absolute;
+        top: 100%;
+        min-width: 150px;
+        height: auto;
+        background-color: var(--main_bg, $main_bg);
+        box-shadow: -50px 0 0 var(--main_bg, $main_bg),
+          50px 0 0 var(--main_bg, $main_bg);
+        transform: scaleY(0);
+        transform-origin: top;
+
+        // Main nav dropdown single items
+        li {
+          position: relative;
+          display: block;
+          padding: 0;
+
+          // Main nav dropdown single items link
+          a {
+            display: block;
+            padding: 10px 0;
+            margin: 5px 0;
+            height: 100%;
+            color: var(--main_color, $main_color);
+            position: relative;
+            overflow: hidden;
+
+            &::before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 1px;
+              bottom: 0;
+              left: 0;
+              transform: translateX(-100%);
+              transition: all $transition;
+              background-color: var(--primary_bg, $primary_bg);
+            }
+
+            &.active {
+              color: var(--primary_bg, $primary_bg);
+            }
+            &:hover {
+              &::before {
+                transform: translateX(0);
+              }
+            }
+          }
+        }
       }
     }
   }
 
-  /*.top-bar {
-    transition: height 0.4s cubic-bezier(0.68, 0.16, 0.39, 0.98),
-      opacity 0.4s cubic-bezier(0.68, 0.16, 0.39, 0.98);
-      padding: 0 3.75vw;
-    position: relative;
-    height: 55px;
-    border-bottom: 1px solid var(--primary_color, #ececec);
-    white-space: nowrap;
-    z-index: 1;
-    pointer-events: all;
-    justify-content: space-between;
-    align-items: center;
+  &__link {
+    transition: color $transition;
+    text-align: center;
+  }
+
+  // Main nav CTAs
+  .styled_nav {
+    padding: 0;
+  }
+  &__styled-btn {
+    @extend .small-font;
     display: flex;
-    .top__coords {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      .phone-menu {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        .top__link {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          color: $nav-color;
-          font-size: 1.7rem;
-          font-weight: 400;
-          text-decoration: none;
-          padding: 0.5rem 1rem;
-        }
+    align-items: center;
+    border: 2px solid var(--nav_color, $nav_color);
+    position: relative;
+    white-space: nowrap;
+    cursor: pointer;
+    height: 50px;
+    padding: 12px 18px;
+    margin-left: 15px;
+    transition: all $transition;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: var(--nav_color, $nav_color);
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      transition: all $transition;
+    }
+
+    &--even {
+      color: var(--nav_bg, $nav_bg);
+
+      &::before {
+        @include transform(none);
+        transform-origin: right;
       }
-      .top-menu {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        .top__link {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          color: $nav-color;
-          font-size: 1.7rem;
-          font-weight: 400;
-          text-decoration: none;
-          padding: 0.5rem 1rem;
+
+      &:hover {
+        color: var(--nav_color, $nav_color);
+
+        &::before {
+          @include transform(scaleX(0));
         }
       }
     }
-    .links {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      .separated-links {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        .top__cart {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          color: $nav-color;
-          font-size: 1.7rem;
-          font-weight: 400;
-          text-decoration: none;
-          padding: 0.5rem 1rem;
-        }
-        .top__currency {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          color: $nav-color;
-          font-size: 1.7rem;
-          font-weight: 400;
-          text-decoration: none;
-          padding: 0.5rem 1rem;
-          transition: background-color 0.35s
-            cubic-bezier(0.68, 0.16, 0.39, 0.98);
+
+    &--odd {
+      color: var(--nav_color, $nav_color);
+
+      &::before {
+        @include transform(scaleX(0));
+        transform-origin: left;
+      }
+
+      &:hover {
+        color: var(--nav_bg, $nav_bg);
+
+        &::before {
+          @include transform(none);
         }
       }
-      .top__lang {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        .dropdown__current {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          color: $nav-color;
-          font-size: 1.7rem;
-          font-weight: 400;
-          text-decoration: none;
-          padding: 0.5rem 1rem;
+    }
+
+    span {
+      position: relative;
+    }
+  }
+
+  // Main nav hamburger btn
+  &__burger {
+    transition: all $transition;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: var(--nav-height, $nav-height);
+    max-height: var(--nav-height, $nav-height);
+    top: var(--topbar-height, $top-bar-height);
+    right: 0;
+    background-color: var(--main_bg, $main_bg);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 10%);
+    z-index: 1;
+  }
+
+  // Width
+  @media screen and (max-width: 1200px) {
+    &__main {
+      border: none;
+    }
+
+    .nav_not-menu {
+      display: none;
+    }
+
+    .top-bar {
+      justify-content: flex-end;
+    }
+
+    html:not(.has-mobile-menu) & {
+      .top-bar {
+        margin-right: calc(#{var(--wrap, $wrap-width)} / 2);
+      }
+      &__main .nav__highlights {
+        padding-right: calc(#{var(--wrap, $wrap-width)} / 2);
+      }
+      &__burger {
+        display: none;
+      }
+    }
+    html:not(.has-mobile-menu) &__burger {
+      display: none;
+    }
+    html.has-mobile-menu &__burger {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 665px) {
+    &__logo {
+      flex-shrink: 1;
+    }
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+      width: 20px;
+    }
+
+    &__logo {
+      img {
+        height: 75px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 370px) {
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+      width: 15px;
+    }
+
+    .hamburger-inner::before {
+      top: 5px;
+    }
+
+    .hamburger-inner::after {
+      bottom: 5px;
+    }
+  }
+}
+
+// Top bar
+.top-bar {
+  transition: visibility 0s $transition, opacity $transition,
+    transform $transition_duration $transition_duration $bezier,
+    margin $transition;
+  position: relative;
+  white-space: nowrap;
+  color: var(--nav_color, $nav_color);
+  border-bottom: 1px solid var(--main_bg, $main_bg);
+  transform: translateY(0);
+  height: var(--topbar-height, $top-bar-height);
+  margin-right: calc(#{var(--nav-height)} + 40px);
+  z-index: 1;
+
+  .menu--shown &,
+  .cart--shown & {
+    transition: visibility 0s $transition, opacity $transition,
+      transform $transition;
+    border-bottom: none;
+  }
+
+  .scroll &,
+  .menu--shown &,
+  .cart--shown & {
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-100%);
+  }
+
+  .top {
+    &__coord {
+      & + .top__coord {
+        margin-left: 30px;
+      }
+    }
+    &__phone {
+      max-width: 160px;
+    }
+    &__address {
+      max-width: 450px;
+      max-width: clamp(400px, 38vw, 600px);
+    }
+    &__icon {
+      margin-right: 10px;
+    }
+    &__link {
+      margin-left: 30px;
+    }
+    &__cart {
+      transition: color $transition;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--nav_color_hover, $nav_color_hover);
+      }
+    }
+  }
+  .dropdown {
+    position: relative;
+
+    &:hover,
+    &:focus-within {
+      .dropdown {
+        &__items {
+          transition: visibility 0s, transform $transition;
+          @include transform(none);
+          visibility: visible;
+        }
+      }
+    }
+
+    &__current {
+      text-transform: uppercase;
+    }
+    &__items {
+      transition: visibility 0s $transition, transform $transition;
+      position: absolute;
+      top: 100%;
+      left: -10px;
+      right: -10px;
+      transform-origin: top;
+      @include transform(scaleY(0));
+      background: var(--nav_bg, $nav_bg);
+      color: var(--nav_color, $nav_color);
+      visibility: hidden;
+
+      a,
+      button,
+      span {
+        transition: color $transition;
+        text-transform: uppercase;
+        display: block;
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+        color: var(--nav_color, $nav_color);
+
+        &:hover {
+          color: var(--nav_color_hover, $nav_color_hover);
         }
       }
     }
   }
-  .main-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }*/
+
+  a {
+    transition: color $transition;
+    color: var(--nav_color, $nav_color);
+
+    &:hover {
+      color: var(--nav_color_hover, $nav_color_hover);
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    &.flex.justify--between {
+      justify-content: flex-end;
+    }
+
+    .top__coords {
+      display: none;
+    }
+  }
 }
 </style>

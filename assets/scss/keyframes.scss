@@ -1,0 +1,14 @@
+@-webkit-keyframes spin{
+    0%  { @include transform(rotate(0deg)) }
+    100%{ @include transform(rotate(719deg)) }
+}
+@keyframes spin{
+    0%  { @include transform(rotate(0deg)) }
+    100%{ @include transform(rotate(719deg)) }
+}
+@-webkit-keyframes pulse{
+    50%{ @include transform(scale(0)) }
+}
+@keyframes pulse{
+    50%{ @include transform(scale(0)) }
+}

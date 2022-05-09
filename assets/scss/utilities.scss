@@ -1,0 +1,292 @@
+// COLORS
+.bg{
+    $colors: main, alt, contrast, primary, secondary, "white", "black";
+
+    // DESIGN COLORS
+    &--main{
+        background-color: var(--main_bg, $main_bg);
+    }
+    &--alt{
+        background-color: var(--alt_bg, $alt_bg);
+    }
+    &--contrast{
+        background-color: var(--contrast_bg, $contrast_bg);
+    }
+    &--primary{
+        background-color: var(--primary_bg, $primary_bg);
+    }
+    &--secondary{
+        background-color: var(--secondary_bg, $secondary_bg);
+    }
+    &--nav{
+        background-color: var(--nav_bg, $nav_bg);
+    }
+    &--menu{
+        background-color: var(--menu_bg, $menu_bg);
+    }
+    &--input{
+        background-color: var(--form_input_bg, $form_input-bg);
+    }
+
+    // General colors
+    &--white{
+        background-color: $white;
+    }
+
+    @each $color in $colors {
+        &--#{$color}{
+            &.section + &.section{
+                & > .padd,
+                &.photo-txt .text .padd{
+                    padding-top: 0;
+                }
+            }
+        }
+    }
+
+    // No bg
+    &--none{
+        background: none;
+    }
+}
+.color{
+    &--white{
+        color: $white;
+    }
+    &--black{
+        color: $black;
+    }
+
+    // DESIGN COLORS
+    &--main{
+        &, .wysiwyg *, .h1 > *, .h2 > *, .h3 > *, .h4 > *, .h5 > *, .h6 > *{
+            color: var(--main_color, $main_color);
+        }
+    }
+    &--header{
+        &, .wysiwyg *, .h1 > *, .h2 > *, .h3 > *, .h4 > *, .h5 > *, .h6 > *{
+            color: var(--header_color, $header_color);
+        }
+    }
+    &--contrast{
+        &, .wysiwyg *, .h1 > *, .h2 > *, .h3 > *, .h4 > *, .h5 > *, .h6 > *{
+            color: var(--contrast_color, $contrast_color);
+        }
+        .wysiwyg > *{
+            opacity: 0.75;
+        }
+    }
+    &--primary{
+        &, .wysiwyg *, .h1 > *, .h2 > *, .h3 > *, .h4 > *, .h5 > *, .h6 > *{
+            color: var(--primary_color, $primary_color);
+        }
+    }
+    &--secondary{
+        &, .wysiwyg *, .h1 > *, .h2 > *, .h3 > *, .h4 > *, .h5 > *, .h6 > *{
+            color: var(--secondary_color, $secondary_color);
+        }
+    }
+    &--paragraph{
+        &, .wysiwyg *, .h1 > *, .h2 > *, .h3 > *, .h4 > *, .h5 > *, .h6 > *{
+            color: var(--paragraph_color, $paragraph_color);
+        }
+    }
+    &--nav{
+        &, .wysiwyg *, .h1 > *, .h2 > *, .h3 > *, .h4 > *, .h5 > *, .h6 > *{
+            color: var(--nav_color, $nav_color);
+        }
+    }
+    &--menu{
+        &, .wysiwyg *, .h1 > *, .h2 > *, .h3 > *, .h4 > *, .h5 > *, .h6 > *{
+            color: var(--menu_color, $menu_color);
+        }
+    }
+}
+
+.al{
+    &--top{
+        vertical-align: top;
+    }
+    &--middle{
+        vertical-align: middle;
+    }
+    &--bottom{
+        vertical-align: bottom;
+    }
+}
+.block{
+    display: block;
+}
+.inline-block{
+    display: inline-block;
+}
+.nowrap{
+    white-space: nowrap;
+}
+.overflow{
+    overflow: hidden;
+}
+.pointer{
+    transition: color .4s;
+    cursor: pointer;
+
+    &:hover{
+        color: var(--alt_bg, $alt_bg);
+    }
+}
+
+.border{
+  border: 2px solid var(--border_color, $border_color);
+}
+
+.rounded{
+    border-radius: 15px;
+}
+.round{
+    border-radius: 50%;
+}
+.scroll{
+    overflow-y: auto;
+    max-height: 100%;
+}
+.table{
+    &--fixed{
+        table-layout: fixed;
+    }
+
+    &_cell{
+        &.al--top{
+            vertical-align: top;
+        }
+        &.al--middle{
+            vertical-align: middle;
+        }
+        &.al--bottom{
+            vertical-align: bottom;
+        }
+
+        &--right{
+          @media (min-width: 1024px) {
+            padding-left: 50px;
+          }
+        }
+    }
+}
+.word-break{
+    word-break: break-all;
+    white-space: normal;
+}
+.z-index{
+    z-index: 1;
+
+    &--2{
+        z-index: 2;
+    }
+    &--3{
+        z-index: 3;
+    }
+    &--4{
+        z-index: 4;
+    }
+}
+.visible{
+    position: relative;
+
+    @media screen and (prefers-reduced-motion: no-preference)  {
+        // Custom for Ludwig
+        &.slide{
+            overflow: hidden;
+
+            & > *{
+                @include transform(translateY(-100%));
+                transition: all 0s $bezier;
+            }
+        }
+        // General
+        &.fade{
+            opacity: 0;
+            transition: all 0s $bezier;
+        }
+        &.fade-left{
+            opacity: 0;
+            @include transform(translateX(-100px));
+            transition: all 0s $bezier;
+        }
+        &.fade-right{
+            opacity: 0;
+            @include transform(translateX(100px));
+            transition: all 0s $bezier;
+        }
+        &.fade-up{
+            opacity: 0;
+            @include transform(translateY(100px));
+            transition: all 0s $bezier;
+        }
+        &.fade-down{
+            opacity: 0;
+            @include transform(translateY(-100px));
+            transition: all 0s $bezier;
+        }
+        &.slide-left{
+            @include transform(translateX(-100px));
+            transition: all 0s $bezier;
+        }
+        &.slide-right{
+            @include transform(translateX(100px));
+            transition: all 0s $bezier;
+        }
+        &.slide-up{
+            @include transform(translateY(100px));
+            transition: all 0s $bezier;
+        }
+        &.slide-down{
+            @include transform(translateY(-100px));
+            transition: all 0s $bezier;
+        }
+        &.zoom{
+            opacity: 0;
+            @include transform(scale(0.0));
+            transition: all 0s $bezier;
+        }
+    
+        &.alive{
+            // transition-delay: .3s;
+    
+            // Ludwig
+            &.slide{
+                & > *{
+                    @include transform(none);
+                    transition-duration: .5s;
+                    transition-delay: .2s;
+                }
+            }
+            // General
+            &.fade{
+                opacity: 1;
+                transition-duration: .5s;
+            }
+            &.fade-right, &.fade-left,
+            &.fade-up, &.fade-down,
+            &.slide-right, &.slide-left,
+            &.slide-up, &.slide-down,
+            &.zoom{
+                opacity: 1;
+                @include transform(none);
+                transition-duration: .5s;
+            }
+            &.delay{
+                &--0{ transition-delay: 0s; }
+                &--1{ transition-delay: 0.1s; }
+                &--2{ transition-delay: 0.2s; }
+                &--3{ transition-delay: 0.3s; }
+                &--4{ transition-delay: 0.4s; }
+                &--5{ transition-delay: 0.5s; }
+                &--6{ transition-delay: 0.6s; }
+                &--7{ transition-delay: 0.7s; }
+                &--8{ transition-delay: 0.8s; }
+                &--9{ transition-delay: 0.9s; }
+                &--10{ transition-delay: 1s; }
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+//  ██████╗ ██████╗ ██╗      ██████╗ ██████╗ ███████╗
+// ██╔════╝██╔═══██╗██║     ██╔═══██╗██╔══██╗██╔════╝
+// ██║     ██║   ██║██║     ██║   ██║██████╔╝███████╗
+// ██║     ██║   ██║██║     ██║   ██║██╔══██╗╚════██║
+// ╚██████╗╚██████╔╝███████╗╚██████╔╝██║  ██║███████║
+//  ╚═════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+                                                  
+$main_bg:#ffffff;
+$alt_bg:#dddcdc;
+$contrast_bg:#12202c;
+$primary_bg:#496070;
+$secondary_bg:#72a9c9;
+$nav_bg:#12202c;
+$footer_bg:#12202c;
+$main_color:#2f2d2d;
+$header_color:#ffffff;
+$contrast_color:#ffffff;
+$primary_color:#12202c;
+$secondary_color:#ffffff;
+$paragraph_color:#505050;
+$nav_color:#ffffff;
+$nav_color_hover:#12202c;
+$menu_bg: #12202c;
+$menu_color: #ffffff;
+$menu_color_hover: #72a9c9;
+$border_color: #dddcdc;
+$footer_color:#ffffff;
+$footer_color_hover:#72a9c9;
+$form-border_color:#72a9c9;
+$form-border_error-color:#ce4c4c;
+$form_input_color: #000000;
+$form_input_bg: #EEEEEE;
+
+
+// ███████╗ ██████╗ ███╗   ██╗████████╗███████╗
+// ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔════╝
+// █████╗  ██║   ██║██╔██╗ ██║   ██║   ███████╗
+// ██╔══╝  ██║   ██║██║╚██╗██║   ██║   ╚════██║
+// ██║     ╚██████╔╝██║ ╚████║   ██║   ███████║
+// ╚═╝      ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝
+                                            
+.title-font{
+    font-family: 'Eurostile LT Std', sans-serif;
+    font-weight: 700;
+    font-size: 9rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.subtitle-font{
+    font-family: 'Campton', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.2;
+    text-transform: none;
+}
+.small-font{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.6;
+}
+.input-font{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1.8rem;
+    line-height: 1.25;
+}
+.paragraph-font{
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2;
+}
