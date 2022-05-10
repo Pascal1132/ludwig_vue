@@ -83,41 +83,14 @@
               <ul
                 class="flex justify--between align--center flex-grow bottom__links"
               >
-                <li class="nav__not-menu link">
-                  <a
+                <li class="nav__not-menu link" v-for="(link, i) in menuLinks" :key="i">
+                  <nuxt-link
                     class="nav__link no-sublink"
-                    href="/fr/services"
-                    title="Services &amp; Expertise"
+                    :to="link.url"
+                    :title="link.title"
                   >
-                    Services &amp; Expertise
-                  </a>
-                </li>
-                <li class="nav__not-menu link">
-                  <a
-                    class="nav__link no-sublink"
-                    href="/fr/blogue"
-                    title="Blogues &amp; Nouvelles"
-                  >
-                    Blogues &amp; Nouvelles
-                  </a>
-                </li>
-                <li class="nav__not-menu link">
-                  <a
-                    class="nav__link no-sublink"
-                    href="/fr/reservation-rendez-vous"
-                    title="Réservation &amp; Rendez-vous"
-                  >
-                    Réservation &amp; Rendez-vous
-                  </a>
-                </li>
-                <li class="nav__not-menu link">
-                  <a
-                    class="nav__link no-sublink"
-                    href="/fr/catalogue-de-produits"
-                    title="Produits"
-                  >
-                    Produits
-                  </a>
+                    {{ link.title }}
+                  </nuxt-link>
                 </li>
                 <li class="styled_nav">
                   <ul
@@ -168,7 +141,7 @@ export default {
   data() {
     return {
       title: "Header",
-      topMenu: {
+      mainMenu: {
         urls: [],
       },
       language: "en",
@@ -186,9 +159,20 @@ export default {
   },
   fetch() {
     this.title = this.$store.getters.pageable.title;
-    this.topMenu = this.$store.getters.getMenu("top_menu");
+    this.mainMenu = this.$store.getters.getMenu("main_menu");
 
     this.language = this.$store.getters.language;
+  },
+  computed: {
+    menuLinks() {
+      // foreach (urls in mainMenu) { url[0].title['']
+      return this.mainMenu.urls.map((url) => {
+        return {
+          'title': url?.title[this.language],
+          'url': url?.url[this.language] ?? '#',
+        };
+      });
+    },
   },
 };
 </script>

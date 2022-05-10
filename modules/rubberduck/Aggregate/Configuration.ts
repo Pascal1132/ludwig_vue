@@ -30,10 +30,6 @@ export default class Configuration implements IDuckClass {
         return menusArray;
     }
 
-    getMenuByName(name: string) {
-        return this.menus.find((menu: any) => menu.name === name);
-    }
-
     toJSON() {
         return {
             menus: this.menus,

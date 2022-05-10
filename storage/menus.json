@@ -1,5 +1,5 @@
 {
-    "main_menu": {
+    "main_menu_old": {
         "urls": [{
                 "type": {
                     "fr": "submenu",
@@ -277,7 +277,7 @@
             }
         ]
     },
-    "top_menu": {
+    "main_menu": {
         "urls": [{
                 "type": {
                     "fr": "internal",

@@ -7,6 +7,7 @@ export default class Field implements IDuckClass {
   optionsValue: any;
   attributes: any;
   data: any;
+  isFilled: boolean;
 
   static get FIELD_TYPES() {
     return [
@@ -34,7 +35,8 @@ export default class Field implements IDuckClass {
     type = "text",
     value = {},
     optionsValue = {},
-    data = {}
+    data = {},
+    isFilled = false
   ) {
     // Verify if the type is valid with the values of the properties FIELD_TYPES
     if (!Field.FIELD_TYPES.includes(type)) {
@@ -45,6 +47,7 @@ export default class Field implements IDuckClass {
     this.value = value;
     this.optionsValue = optionsValue;
     this.data = data;
+    this.isFilled = isFilled;
   }
 
   // Get the value of the field
@@ -80,8 +83,23 @@ export default class Field implements IDuckClass {
         attributes["src"] = this.value;
         break;
     }
-    return attributes;
+    return (this.attributes = attributes);
   }
+
+  checkIfFilled() {
+    let filled = true;
+    switch (this.type) {
+      case "text":
+      case "wysiwyg":
+        filled = this.value?.length > 0;
+        break;
+      case "link":
+        filled = this.optionsValue?.title?.length > 0;
+        break;
+    }
+    this.isFilled = filled;
+  }
+
   toJSON() {
     return {
       name: this.name,
@@ -90,6 +108,7 @@ export default class Field implements IDuckClass {
       optionsValue: this.optionsValue,
       attributes: this.attributes,
       data: this.data,
+      isFilled: this.isFilled,
     };
   }
   static fromJSON(json: any) {
@@ -100,7 +119,8 @@ export default class Field implements IDuckClass {
       json.optionsValue,
       json.data
     );
-    field_obj.attributes = field_obj.generateTagAttributes();
+    field_obj.generateTagAttributes();
+    field_obj.checkIfFilled();
     return field_obj;
   }
 }

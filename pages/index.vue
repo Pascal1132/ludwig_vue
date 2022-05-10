@@ -1,5 +1,5 @@
 <template>
-  <transition>
+<transition >
     <div class="content" :style="cssVars">
       <template v-for="(section, i) in sections">
         <LazyComponent

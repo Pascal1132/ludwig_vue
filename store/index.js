@@ -72,8 +72,8 @@ export const actions = {
 export const getters = {
     pageable: state => state.pageable,
     configuration: state => state.configuration,
-    getMenu: state => menu => {
-        return state.configuration?.getMenuByName(menu);
+    getMenu: state => menuKey => {
+        return state.configuration?.menus.find((menu) => menu.name === menuKey);
     },
     language: state => state.language,
     routes: state => state.routes,

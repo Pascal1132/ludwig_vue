@@ -32,7 +32,7 @@
             class="flex--3-fifth flex--1024-full visible once fade-left alive"
           >
             <div class="h1 visible once slide alive">
-              <h1>Blogue &amp; Nouvelles</h1>
+              <h1>{{title.value}}</h1>
             </div>
           </div>
         </div>

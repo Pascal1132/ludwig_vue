@@ -1,95 +1,87 @@
 // BASE FOR EACH COMPONENT
 html {
-    font-size: 62.5%;
-    margin: 0;
-    font-family: "Open Sans", sans-serif;
-    background: #444;
-    font-family: "EurostileLTStd", sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    -webkit-font-feature-settings: "liga" 0;
-    -moz-font-feature-settings: "liga" 0;
-    -ms-font-feature-settings: "liga" 0;
-    -o-font-feature-settings: "liga" 0;
-    font-feature-settings: "liga" 0;
-    background-color: var(--contrast_bg, #12202c);
-    color: var(--main_color, #2f2d2d);
-    min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-size: 62.5%;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: #444;
+  font-family: "EurostileLTStd", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  -webkit-font-feature-settings: "liga" 0;
+  -moz-font-feature-settings: "liga" 0;
+  -ms-font-feature-settings: "liga" 0;
+  -o-font-feature-settings: "liga" 0;
+  font-feature-settings: "liga" 0;
+  background-color: var(--contrast_bg, #12202c);
+  color: var(--main_color, #2f2d2d);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-
-
 body {
-    font-size: 27px;
-    margin: 0;
+  font-size: 27px;
+  margin: 0;
 }
 
 input,
 textarea,
 * {
-    border: 0;
-    outline: 0;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    resize: none;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  resize: none;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
-.flex--gap>* {
-    padding: var(--gap);
+.flex--gap > * {
+  padding: var(--gap);
 }
 p,
 li,
 span.normal-text,
 .wysiwyg li,
 .wysiwyg p {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 a {
-    color: $primary_color;
-    text-decoration: none;
-    &:hover {
-        color: $secondary_color;
+  color: $primary_color;
+  text-decoration: none;
+  &:hover {
+    color: $secondary_color;
+  }
+}
+/*.content {
+    &.my-page-enter-active{
+        opacity: 1;
+        transition: opacity .5s;
     }
-}
-
-// RUN FOR GLOBAL PAGE IN CSS
-.list-enter-active,
-.list-leave-active {
-    transition: all 0.5s ease;
-}
-
-.list-enter-from,
-.list-leave-to {
-    opacity: 0;
-    transform: translateX(30px);
-}
-
-.page-enter-active,
-.page-leave-active {
-    transition: all 0.5s ease;
-}
-.page-enter-from,
-.page-leave-to {
-    opacity: 0;
-    transform: translateX(30px);
-}
+    &.my-page-enter{
+        opacity: 0;
+    }
+    &.my-page-leave-active{
+        opacity: 1;
+        transition: opacity .5s;
+    }
+    &.my-page-leave-to{
+        opacity: 0;
+    }
+}*/
 
 .padd {
-    display: block;
-    position: relative;
-    width: 100%;
-    padding: clamp(75px, 15vh, 190px) 0;
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: clamp(75px, 15vh, 190px) 0;
 }
 
 .wrap {
-    padding-left: var(--wrap,10vw);
-    padding-right: var(--wrap,10vw);
-    margin: 0 auto;
+  padding-left: var(--wrap, 10vw);
+  padding-right: var(--wrap, 10vw);
+  margin: 0 auto;
 }

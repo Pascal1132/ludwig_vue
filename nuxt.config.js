@@ -24,9 +24,24 @@ export default {
         ]
     },
     pageTransition: {
-        name: 'page',
+        name: 'my-page',
         mode: 'out-in',
-    },
+        beforeLeave (el) {
+          document.documentElement.classList.add('is-animating')
+        },
+        afterEnter (el) {
+            console.log('After enter...');
+        },
+        afterLeave (el) {
+            console.log('After leave...');
+        },
+        beforeEnter (el) {
+            document.documentElement.classList.remove('is-animating')
+
+            console.log('Before enter...');
+        }
+      },
+
 
     plugins: [{ src: '~~/node_modules/vue-rellax/lib/nuxt-plugin', ssr: false },
     { src: '~/plugins/fontawesome.js', ssr: false }

@@ -24,12 +24,14 @@ export default {
     },
 
     finish() {
+      setTimeout(() => {
       this.willChange = true;
       setTimeout(() => {
         this.loading = false;
         this.willChange = false;
       }, 200);
       console.log(Date.now() - this.timestamp + 'ms');
+      }, 250);
     },
   },
   mounted() {},
@@ -59,7 +61,6 @@ export default {
     align-items: center;
     flex-direction: row;
     text-align: center;
-    color: #fff;
     animation: fadeIn 0.25s ease-in-out;
     z-index: 9999;
     background-color: rgba(0, 0, 0, 0.9);
@@ -70,8 +71,7 @@ export default {
       height: 10px;
       border-radius: 50%;
       margin: 0 5px;
-      background-color: $primary_color;
-      border: 2px solid $white;
+      background-color: $white;
       animation-delay: 0.15s;
       animation-iteration-count: infinite;
       animation-duration: 0.2s;
