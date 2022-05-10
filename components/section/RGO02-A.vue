@@ -9,7 +9,7 @@
               <div
                 class="inline-block relative visible once fade-up once overflow alive"
               >
-                <picture>
+                <!--<picture>
                   <source
                     media="(min-width: 1024px)"
                     data-viewport="1024"
@@ -51,7 +51,8 @@
                     height="607"
                     intrinsicsize="531 x 607"
                   />
-                </picture>
+                </picture>-->
+                <Picture :imageField="img_RGO02A" />
               </div>
             </div>
           </div>
