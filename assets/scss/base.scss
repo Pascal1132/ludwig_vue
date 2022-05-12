@@ -56,22 +56,25 @@ a {
     color: $secondary_color;
   }
 }
-/*.content {
-    &.my-page-enter-active{
-        opacity: 1;
-        transition: opacity .5s;
-    }
-    &.my-page-enter{
-        opacity: 0;
-    }
-    &.my-page-leave-active{
-        opacity: 1;
-        transition: opacity .5s;
-    }
-    &.my-page-leave-to{
-        opacity: 0;
-    }
-}*/
+
+.my-page-enter-active{
+    opacity: 1;
+    transition: all .5s;
+    
+}
+.my-page-enter{
+    transform: translateX(-10vw);
+    opacity: 0.5;
+}
+.my-page-leave-active{
+    opacity: 1;
+    transition: all .5s;
+    //transition-delay: .5s;
+}
+.my-page-leave-to{
+    transform: translateX(-10vw);
+    opacity: 0.5;
+}
 
 .padd {
   display: block;

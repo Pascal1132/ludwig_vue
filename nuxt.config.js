@@ -31,13 +31,14 @@ export default {
         },
         afterEnter (el) {
             console.log('After enter...');
+            setTimeout(function () {
+                document.documentElement.classList.remove('is-animating')
+            }, 250)
         },
         afterLeave (el) {
             console.log('After leave...');
         },
         beforeEnter (el) {
-            document.documentElement.classList.remove('is-animating')
-
             console.log('Before enter...');
         }
       },
@@ -84,7 +85,8 @@ export default {
     components: {
         dirs: [
             '~/components',
-            { path: '~/components/section', prefix: 'section' },
+            { path: '~/components/sections', prefix: 'section' },
+            '~/components/forms',
             '~/components/utilities',
         ]
     },

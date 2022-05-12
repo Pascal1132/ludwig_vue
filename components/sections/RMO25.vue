@@ -35,15 +35,16 @@
             data-cat=""
             style="display: inline-block"
             data-bound=""
+            v-for="(object, i) in objects" :key="i"
           >
             <div
               class="article__image box-padd fullBG flex align--end bg--5 visible once fade-down alive"
               data-backgrounds="/public/media/7d4ccad8-576b-11ec-a5d7-f1ae0f18bf38.jpg?v=1638888144"
               data-sizes=""
               data-positions=""
-              style="
-                background-image: url('/public/media/7d4ccad8-576b-11ec-a5d7-f1ae0f18bf38.jpg?v=1638888144');
-              "
+              :style="{
+                backgroundImage: `url('${object.previewImage.url}')`,
+                }"
             >
               <div
                 class="article__box flex--full box--bordered bg--main color--main visible once fade-up delay--2 alive"
@@ -65,11 +66,11 @@
                     </div>
                   </div>
                   <div class="subtitle-font article__author color--paragraph">
-                    <span>Kevin Dubreuil</span>
+                    <span>{{object.author.firstName}} {{object.author.lastName}}</span>
                   </div>
 
                   <div class="article__title h5">
-                    <h3>Article 1</h3>
+                    <h3>{{object.title}}</h3>
                   </div>
 
                   <div class="wysiwyg line-clamp">
@@ -105,18 +106,6 @@ export default {
     articles: null,
     objects: null,
   },
-  /*data: () => ({
-    objects: null,
-  }),
-  async fetch() {
-    this.objects = await this.fetchObjects({
-      name: 'blog_articles',
-      ids: Object.values(this.articles.value),
-    })
-  },
-  methods: {
-    //...mapActions(['fetchObjects']),
-  },*/
 };
 </script>
 

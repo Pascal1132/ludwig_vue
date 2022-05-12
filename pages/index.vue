@@ -8,6 +8,7 @@
           v-bind="section.props"
           :section="section"
           :pageable="pageable"
+          :index="i"
           :data-section="section.component"
         />
       </template>
@@ -40,7 +41,7 @@ const fetchObjectsFromSectionCode = async (
         // fetch the object from store
         result[key] = await store.dispatch("fetchObjects", {
           name: object.name,
-          ids: Object.values(field.value),
+          ids: typeof field.value === "object" ? Object.values(field.value) : [field.value],
         });
       }
     }
