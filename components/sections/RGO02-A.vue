@@ -1,10 +1,10 @@
 <template>
-  <section class="section RGO02-A bg--main">
+  <section class="section RGO02-A bg--main" data-aos="fade-right">
     <div class="padd">
       <div class="wrap">
         <div class="flex flex--gap flex--reverse-row wrap--1024">
           <!-- IMG -->
-          <div class="media__container flex--half flex--1024-full">
+          <div class="media__container flex--half flex--1024-full" data-aos="fade-left">
             <div class="image alRight sticky sticky--top">
               <div
                 class="inline-block relative visible once fade-up once overflow alive"
@@ -58,7 +58,7 @@
           </div>
 
           <!-- TEXT -->
-          <div class="text__container flex--half flex--1024-full">
+          <div class="text__container flex--half flex--1024-full" data-aos="fade-right">
             <div
               class="sticky sticky--top sticky--bottom visible once fade-down once alive"
             >

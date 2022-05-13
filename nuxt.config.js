@@ -20,32 +20,33 @@ export default {
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
         script: [
-            { src: 'https://polyfill.io/v3/polyfill.min.js?features=WeakMap' },
+            
         ]
     },
     pageTransition: {
         name: 'my-page',
         mode: 'out-in',
-        beforeLeave (el) {
-          document.documentElement.classList.add('is-animating')
+        beforeLeave(el) {
+            document.documentElement.classList.add('is-animating')
         },
-        afterEnter (el) {
+        afterEnter(el) {
             console.log('After enter...');
             setTimeout(function () {
                 document.documentElement.classList.remove('is-animating')
             }, 250)
         },
-        afterLeave (el) {
+        afterLeave(el) {
             console.log('After leave...');
         },
-        beforeEnter (el) {
+        beforeEnter(el) {
             console.log('Before enter...');
         }
-      },
+    },
 
 
     plugins: [{ src: '~~/node_modules/vue-rellax/lib/nuxt-plugin', ssr: false },
-    { src: '~/plugins/fontawesome.js', ssr: false }
+    { src: '~/plugins/fontawesome.js', ssr: false },
+    { src: '~/plugins/aos.js', ssr: false },
     ],
 
     // Router property -  https://nuxtjs.org/docs/2.x/features/file-system-routing#the-router-property
@@ -119,6 +120,7 @@ export default {
     modules: [
         '@nuxtjs/style-resources',
         '@nuxt/image',
+        'nuxt-vue-select',
     ],
 
     // Build Configuration: https://go.nuxtjs.dev/config-build

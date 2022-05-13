@@ -7,21 +7,21 @@
           <div class="top__coord flex align--center">
             <span class="top__icon fas fa-phone-alt"></span>
             <span class="subtitle-font top__phone">
-              <a
-                href="tel:18449713825"
+              <nuxt-link
+                to="tel:18449713825"
                 title="Appeler maintenant"
                 data-no-swup=""
-                >1-844-971-3825</a
+                >1-844-971-3825</nuxt-link
               >
             </span>
           </div>
           <div class="top__coord top__address flex align--center">
             <span class="top__icon fas fa-map-marker-alt"></span>
             <span class="subtitle-font top__address ellipsis">
-              <a
-                href="https://www.google.com/maps/place/444+rue+RubberDuck+Quacktown+Qu%C3%A9bec+H4H+4H4+Canada"
+              <nuxt-link
+                to="https://www.google.com/maps/place/444+rue+RubberDuck+Quacktown+Qu%C3%A9bec+H4H+4H4+Canada"
                 title="Voir sur Google Maps"
-                >444, rue RubberDuck Quacktown (Québec) H4H 4H4 Canada</a
+                >444, rue RubberDuck Quacktown (Québec) H4H 4H4 Canada</nuxt-link
               >
             </span>
           </div>
@@ -52,12 +52,12 @@
             <span class="dropdown__current subtitle-font">fr</span>
             <ul class="dropdown__items">
               <li>
-                <a
-                  href="/en"
+                <nuxt-link
+                  to="/en"
                   class="subtitle-font"
                   data-no-swup=""
                   title="en"
-                  >en</a
+                  >en</nuxt-link
                 >
               </li>
             </ul>
@@ -72,13 +72,13 @@
             >
               <div class="nav__sublinks-background"></div>
               <header class="nav__logo">
-                <a href="/fr" title="Daffy" class="active">
+                <nuxt-link to="/fr" title="Daffy" class="active">
                   <img
                     src="/public/media/d189238a-301b-11eb-8e06-c3b592aaef0d.svg"
                     alt=""
                     loading="lazy"
                   />
-                </a>
+                </nuxt-link>
               </header>
               <ul
                 class="flex justify--between align--center flex-grow bottom__links"
@@ -97,26 +97,26 @@
                     class="styled_nav-buttons flex justify--end align--center"
                   >
                     <li class="">
-                      <a
+                      <nuxt-link
                         class="nav__styled-btn nav__styled-btn--even"
-                        href="/fr/nous-joindre"
+                        to="/fr/nous-joindre"
                         title="Contactez-nous"
                       >
                         <span class="nav__styled-btn--even__text">
                           Contactez-nous
                         </span>
-                      </a>
+                      </nuxt-link>
                     </li>
                     <li class="">
-                      <a
+                      <nuxt-link
                         class="nav__styled-btn nav__styled-btn--odd"
-                        href="tel:450-657-8714"
+                        to="tel:450-657-8714"
                         title="450-657-8714"
                       >
                         <span class="nav__styled-btn--odd__text">
                           450-657-8714
                         </span>
-                      </a>
+                      </nuxt-link>
                     </li>
                   </ul>
                 </li>

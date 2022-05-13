@@ -4,8 +4,8 @@
   >
     <div class="padd">
       <div class="wrap">
-        <div class="center">
-          <div class="RGO06__icon visible once zoom alive">
+        <div class="center" data-aos="zoom-out" data-aos-easing="ease-in-out">
+          <div class="RGO06__icon visible once zoom alive" >
             <svg
               width="54"
               height="54"
@@ -21,7 +21,7 @@
               ></path>
             </svg>
           </div>
-          <div class="h3 RGO06__quote visible once fade-up delay--2 alive" v-html="quote.value">
+          <div class="h3 RGO06__quote visible once fade-up delay--2 alive" v-html="quote.value" >
           </div>
           <div class="subtitle subtitle--primary slide">
             <span>

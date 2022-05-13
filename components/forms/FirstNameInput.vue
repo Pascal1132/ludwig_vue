@@ -1,15 +1,17 @@
 <template>
+<div class="input--text flex--half">
   <label>
-    <span class="input__label">Prénom </span>
+    <span class="input__label">{{input.title}} <span class="optional" v-if="input.required == '0'">(Optionnel)</span></span>
 
     <input
       type="text"
-      name="6a6d2e4e-cc3e-11ea-ae24-ddec99161d58"
+      :name="input.id"
       :placeholder="input.placeholder"
       autocomplete="given-name"
       value=""
     />
   </label>
+</div>
 </template>
 <script>
 export default {

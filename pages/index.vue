@@ -34,7 +34,7 @@ const fetchObjectsFromSectionCode = async (
     // foreach key of the object, fetchObjects
     let result = <any>{};
     for (let key in sectionObjects) {
-      let object = sectionObjects[key as keyof typeof sectionObjects];
+      let object = <any>sectionObjects[key as keyof typeof sectionObjects];
       // get the props that has the same name of the object.field
       let field = props[object.field];
       if (field) {
