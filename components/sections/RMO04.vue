@@ -17,10 +17,13 @@
           >
             <div class="flex flex--gap flex--wrap flex--forever align--end">
               <component
-                v-for="input in form.inputs"
+                v-for="(input, index) in form.inputs"
                 :key="input.id"
                 :is="input.type"
                 :input="input"
+                data-aos="fade-in"
+                data-aos-easing="ease-in-out"
+                :data-aos-delay="100 * (index)"
               ></component>
               <input
                 type="hidden"

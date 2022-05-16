@@ -3,7 +3,7 @@
       sizes="sm:200px md:400px lg:800px"
       v-bind="imageField.attributes"
     />-->
-  <nuxt-picture v-bind="imageField.attributes" loading="lazy">
+  <nuxt-picture v-if="imageField.attributes.src" v-bind="imageField.attributes" loading="lazy">
     <source
       media="(min-width: 1024px)"
       data-viewport="1024"

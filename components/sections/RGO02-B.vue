@@ -16,14 +16,14 @@
             <div class="sticky sticky--top visible once fade-up once alive">
               <div
                 class="subtitle subtitle--contrast visible once slide once alive"
-              >
+              data-aos="flip-down">
                 <p>{{ subtitle.value }}</p>
               </div>
-              <div class="h2 visible once slide once alive">
+              <div class="h2 visible once slide once alive" data-aos="fade-up" data-aos-delay="100">
                 <p>{{ title.value }}</p>
               </div>
-              <div class="wysiwyg" v-html="text.value"></div>
-              <div class="btn-container">
+              <div class="wysiwyg" v-html="text.value" data-aos="fade-up" data-aos-delay="200"></div>
+              <div class="btn-container" data-aos="fade-up" data-aos-delay="300">
                 <!-- LINK 1 -->
                 <Button
                   type="primary"

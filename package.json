@@ -26,13 +26,12 @@
     "express": "4.18.0",
     "nuxt": "2.15.8",
     "nuxt-vue-select": "^0.1.4",
-    "swup": "2.0.14",
     "vue": "2.6.14",
     "vue-rellax": "^0.2.0",
     "vue-select": "^3.18.3",
     "vue-server-renderer": "2.6.14",
     "vue-template-compiler": "2.6.14",
-    "webpack": "^4.46.0"
+    "webpack": "*"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.1.1",

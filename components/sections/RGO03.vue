@@ -11,19 +11,19 @@
       <div class="wrap">
         <div class="container">
           <div
-            class="text__box padd bg--contrast color--contrast visible once fade-right alive"
+            class="text__box padd bg--contrast color--contrast"
           >
             <div class="wrap">
-              <div class="subtitle subtitle--primary visible once slide alive">
+              <div class="subtitle subtitle--primary visible once " data-aos-delay="100" data-aos="fade-left">
                 <p>{{ subtitle.value }}</p>
               </div>
-              <div class="h3 visible once slide alive">
+              <div class="h3 visible once " data-aos="fade-left" data-aos-delay="200" >
                 <p>{{ title.value }}</p>
               </div>
-              <div class="wysiwyg">
+              <div class="wysiwyg"  data-aos="fade-left" data-aos-delay="300">
                 <span v-html="text.value"></span>
               </div>
-              <div class="btn-container" v-if="(link.isFilled || link2.isFilled)">
+              <div class="btn-container" v-if="(link.isFilled || link2.isFilled)" data-aos="fade-left" data-aos-delay="400">
                 <Button
                   type="primary"
                   v-if="link.isFilled"

@@ -36,15 +36,19 @@
             style="display: inline-block"
             data-bound=""
             v-for="(object, i) in objects" :key="i"
+            
           >
             <div
-              class="article__image box-padd fullBG flex align--end bg--5 visible once fade-down alive"
+              class="article__image box-padd fullBG flex align--end bg--5"
               data-backgrounds="/public/media/7d4ccad8-576b-11ec-a5d7-f1ae0f18bf38.jpg?v=1638888144"
               data-sizes=""
               data-positions=""
               :style="{
                 backgroundImage: `url('${object.previewImage.url}')`,
                 }"
+                data-aos="fade-in"
+            data-aos-easing="ease-in-out"
+            :data-aos-delay="100 * (i)"
             >
               <div
                 class="article__box flex--full box--bordered bg--main color--main visible once fade-up delay--2 alive"

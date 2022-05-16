@@ -19,9 +19,11 @@
                 data-slick-index="0"
                 aria-hidden="false"
                 tabindex="0"
-                style="width: 489px; height: 663.172px"
+                style="width: 489px; height: 663.172px;"
                 v-for="(card, index) in cards"
                 :key="index"
+                data-aos="fade-up"
+                :data-aos-delay="100 * index"
               >
                 <div class="resize flex flex--column justify--between h--100">
                   <a
@@ -54,8 +56,9 @@
                       v-bind="card.link.attributes"
                       icon="location-arrow"
                       alternate="1"
-                      >{{ card.link.optionsValue.title }}</Button
                     >
+                      {{ card.link.optionsValue.title }}
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -68,7 +71,7 @@
 </template>
 <script>
 export default {
-  name: "RGO07",
+  name: 'RGO07',
   props: {
     section: null,
     pageable: null,
@@ -76,21 +79,21 @@ export default {
   },
   computed: {
     cards() {
-      var isNext = true;
+      var isNext = true
       return this.pageable.sections
         .filter((section, index) => {
-          if (section.code !== "RGO07-A" && index > this.index) {
-            isNext = false;
+          if (section.code !== 'RGO07-A' && index > this.index) {
+            isNext = false
           }
-          return isNext && index > this.index;
+          return isNext && index > this.index
         })
-        .map((section) => section.props);
+        .map((section) => section.props)
     },
   },
   mounted() {
-    console.log(this.cards);
+    console.log(this.cards)
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

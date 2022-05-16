@@ -20,7 +20,7 @@ export default {
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         ],
         script: [
-            
+
         ]
     },
     pageTransition: {
@@ -133,5 +133,9 @@ export default {
     axios: {
         baseURL: 'http://localhost:3001',
     },
+
+    server: {
+        host: '192.168.50.5' // default: localhost
+    }
 
 }
