@@ -30,8 +30,8 @@ export default {
         this.loading = false;
         this.willChange = false;
       }, 200);
-      console.log(Date.now() - this.timestamp + 'ms');
       }, 250);
+      console.log(Date.now() - this.timestamp + 'ms');
     },
   },
   mounted() {},

@@ -130,7 +130,7 @@ a {
     
 }
 .my-page-enter{
-    transform: translateX(-10vw);
+    transform: translateX(-100vw);
     opacity: 0.5;
 }
 .my-page-leave-active{
@@ -139,7 +139,7 @@ a {
     //transition-delay: .5s;
 }
 .my-page-leave-to{
-    transform: translateX(-10vw);
+    transform: translateX(-100vw);
     opacity: 0.5;
 }
 

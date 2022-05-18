@@ -47,6 +47,8 @@ export default {
     plugins: [{ src: '~~/node_modules/vue-rellax/lib/nuxt-plugin', ssr: false },
     { src: '~/plugins/fontawesome.js', ssr: false },
     { src: '~/plugins/aos.js', ssr: false },
+    { src: '~/plugins/slick.js', ssr: false },
+    { src: '~/plugins/datepicker.js', ssr: false },
     ],
 
     // Router property -  https://nuxtjs.org/docs/2.x/features/file-system-routing#the-router-property
@@ -135,7 +137,7 @@ export default {
     },
 
     server: {
-        host: '192.168.50.5' // default: localhost
+        //host: '192.168.50.5' // default: localhost
     }
 
 }
