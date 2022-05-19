@@ -116,6 +116,7 @@
             </div>
             <div id="place_events_here">
               <p>Aucun événement pour cette date</p>
+              <span> {{events}}</span>
             </div>
           </div>
         </div>
@@ -131,18 +132,24 @@ export default {
   },
   data() {
     return {
-      currentDate: new Date()
+      currentDate: new Date(),
+      events: [],
     }
   },
   methods: {
     changeDate(date) {
       this.currentDate = date;
-      //this.getEvents(date);
+      // get timestamp from date
+      let timestamp = new Date(date).getTime();
+      this.getEvents(timestamp);
     },
-    getEvents(date) {
-      let url = `/api/events/date/${date}`;
-      axios.get(url).then((response) => {
-        this.events = response.data;
+    async getEvents(timestamp) {
+      this.events = await this.$store.dispatch("fetchQueryObjects", {
+        route: 'fetch_events_by_date',
+        params: {
+          timestamp,
+          language: 'fr',
+        }
       });
     },
   },

@@ -66,6 +66,15 @@ export const actions = {
         });
         let res = await result.data;
         return res;
+    },
+    async fetchQueryObjects({ state }, { route, params }) {
+        const language = state.language;
+        params.language = language;
+        let result = await axios.get(`http://localhost:3001/rubberduck/q/${route}`, {
+            params
+        });
+        let res = await result.data;
+        return res;
     }
 
 }
